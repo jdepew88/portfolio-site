@@ -13,9 +13,6 @@
         display: block;
         width: 100%;
         height: auto;
-        max-height: min(22rem, 42vw);
-        object-fit: cover;
-        object-position: 68% center;
         border-radius: var(--radius-l);
     }
 }

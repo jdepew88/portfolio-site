@@ -83,10 +83,10 @@ export default function About() {
           <Media
             fillWidth
             radius="l"
-            alt=""
+            alt="Joseph Depew — city skyline at dusk"
             src={ABOUT_HERO}
-            aspectRatio="21 / 9"
-            sizes="(max-width: 768px) 100vw, 720px"
+            aspectRatio="1916 / 821"
+            sizes="(max-width: 768px) 100vw, 1440px"
             priority
           />
         </div>
