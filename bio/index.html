@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Command-line style bio for Joseph Depew.">
+  <title>whois joey_depew</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --text: #c9d1d9;
+      --prompt: #58a6ff;
+      --accent: #7ee787;
+      --muted: #8b949e;
+      --border: #30363d;
+      --error: #f85149;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Cascadia Code", "Consolas", "Monaco", "Courier New", monospace;
+      font-size: 0.875rem;
+      line-height: 1.55;
+      padding: 1.5rem 1.25rem 2rem;
+    }
+    .terminal {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .line { margin: 0 0 0.15rem; white-space: pre-wrap; word-break: break-word; }
+    .prompt { color: var(--prompt); }
+    .cmd { color: var(--text); }
+    .label { color: var(--accent); }
+    .value { color: var(--text); }
+    .muted { color: var(--muted); }
+    .error { color: var(--error); }
+    .section-gap { margin-top: 1rem; }
+    a { color: var(--prompt); }
+    a:hover { text-decoration: underline; }
+    .back {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back:hover { color: var(--prompt); }
+    #shell-log { margin-top: 1rem; }
+    .shell-input-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0;
+      margin-top: 0.25rem;
+    }
+    .shell-input {
+      flex: 1;
+      min-width: 12rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font: inherit;
+      padding: 0;
+      margin: 0;
+      caret-color: var(--prompt);
+    }
+    @media (max-width: 640px) {
+      body { font-size: 0.8rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal" id="terminal">
+    <a class="back" href="/">← Back to joeydepew.com</a>
+
+    <p class="line"><span class="prompt">guest@joeydepew</span><span class="cmd">:~$ whois joey_depew</span></p>
+    <p class="line muted">Querying registry... done.</p>
+
+    <div class="section-gap" id="whois-static">
+      <p class="line"><span class="label">Person:</span>     <span class="value">Joseph Depew</span></p>
+      <p class="line"><span class="label">Handle:</span>     <span class="value">JOEY-DEPEW</span></p>
+      <p class="line"><span class="label">Domain:</span>     <span class="value">joeydepew.com</span></p>
+      <p class="line"><span class="label">Role:</span>       <span class="value">Builder / IT generalist / legal-tech founder</span></p>
+      <p class="line"><span class="label">Focus:</span>      <span class="value">Web apps, infrastructure, automation, homelab</span></p>
+    </div>
+
+    <div class="section-gap">
+      <p class="line muted"># Summary</p>
+      <p class="line">Joseph builds practical systems: legal-tech workflows, self-hosted Docker stacks,</p>
+      <p class="line">browser extensions, and hands-on IT support. Work tends toward tools that are</p>
+      <p class="line">understandable, recoverable, and useful in real environments—not slide decks.</p>
+    </div>
+
+    <div class="section-gap">
+      <p class="line muted"># Active projects</p>
+      <p class="line"><span class="label">QDROdl</span>              <a href="https://qdrodl.app/" target="_blank" rel="noopener noreferrer">https://qdrodl.app/</a></p>
+      <p class="line"><span class="label">Homelab in a Box</span>  <a href="https://homelabinabox.app/" target="_blank" rel="noopener noreferrer">https://homelabinabox.app/</a></p>
+      <p class="line"><span class="label">JR Technical</span>      <a href="https://jrtechnicalconsulting.com/" target="_blank" rel="noopener noreferrer">https://jrtechnicalconsulting.com/</a></p>
+      <p class="line"><span class="label">TabStack</span>          <a href="https://github.com/jdepew88/TabStack" target="_blank" rel="noopener noreferrer">github.com/jdepew88/TabStack</a></p>
+      <p class="line"><span class="label">TubeStack</span>         <a href="https://github.com/jdepew88/TubeStack" target="_blank" rel="noopener noreferrer">github.com/jdepew88/TubeStack</a></p>
+      <p class="line"><span class="label">CCNA Notes</span>        <a href="https://github.com/jdepew88/CCNA-Notes---jdepew88" target="_blank" rel="noopener noreferrer">github.com/jdepew88/CCNA-Notes---jdepew88</a></p>
+    </div>
+
+    <div class="section-gap">
+      <p class="line muted"># Stack &amp; interests</p>
+      <p class="line"><span class="label">Web:</span>         Next.js, TypeScript, React, PostgreSQL, Prisma</p>
+      <p class="line"><span class="label">Infra:</span>      Docker, Traefik, Cloudflare, Linux, pfSense, Proxmox</p>
+      <p class="line"><span class="label">Storage:</span>    Unraid, backups, VLAN segmentation</p>
+      <p class="line"><span class="label">Browser:</span>    Chrome extensions (Manifest V3), local-first workflows</p>
+      <p class="line"><span class="label">Network:</span>    Routing, switching, subnetting, CCNA study</p>
+      <p class="line"><span class="label">Legal tech:</span>  Structured intake, document prep automation</p>
+    </div>
+
+    <div class="section-gap">
+      <p class="line muted"># Homelab notes</p>
+      <p class="line">Lab environment used for VLAN design, tunneling, container orchestration experiments,</p>
+      <p class="line">and self-hosted services before they touch production-ish setups.</p>
+      <p class="line"><span class="label">Diagram:</span>     <a href="/homelab/">/homelab/</a></p>
+    </div>
+
+    <div class="section-gap">
+      <p class="line muted"># Contact</p>
+      <p class="line"><span class="label">GitHub:</span>      <a href="https://github.com/jdepew88/" target="_blank" rel="noopener noreferrer">github.com/jdepew88</a></p>
+      <p class="line"><span class="label">LinkedIn:</span>    <a href="https://www.linkedin.com/in/joseph-depew-857459123/" target="_blank" rel="noopener noreferrer">linkedin.com/in/joseph-depew-857459123</a></p>
+      <p class="line"><span class="label">Email:</span>       <a href="mailto:hello@joeydepew.com">hello@joeydepew.com</a></p>
+    </div>
+
+    <div class="section-gap">
+      <p class="line muted"># Registry dates</p>
+      <p class="line"><span class="label">Status:</span>      <span class="value">ACTIVE — still building</span></p>
+      <p class="line"><span class="label">Last updated:</span> <span class="value">2026</span></p>
+    </div>
+
+    <p class="line section-gap muted">Type <span class="value">help</span> for available commands.</p>
+
+    <div id="shell-log" aria-live="polite"></div>
+
+    <div class="shell-input-row">
+      <span class="prompt">guest@joeydepew</span><span class="cmd">:~$ </span>
+      <input type="text" id="shell-input" class="shell-input" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Terminal command input">
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var log = document.getElementById("shell-log");
+      var input = document.getElementById("shell-input");
+      var terminal = document.getElementById("terminal");
+      var history = [];
+      var historyIndex = -1;
+
+      function appendLine(html, className) {
+        var p = document.createElement("p");
+        p.className = "line" + (className ? " " + className : "");
+        p.innerHTML = html;
+        log.appendChild(p);
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+
+      function printBlock(lines, className) {
+        lines.forEach(function (line) {
+          appendLine(line, className);
+        });
+      }
+
+      var commands = {
+        help: function () {
+          printBlock([
+            "Available commands:",
+            "  help       — show this list",
+            "  whois      — registry summary",
+            "  projects   — active project links",
+            "  homelab    — open homelab diagram",
+            "  github     — GitHub profile",
+            "  linkedin   — LinkedIn profile",
+            "  stack      — tech stack &amp; interests",
+            "  contact    — contact links",
+            "  clear      — clear command output",
+            "  home       — return to joeydepew.com"
+          ]);
+        },
+        whois: function () {
+          printBlock([
+            '<span class="label">Person:</span>     Joseph Depew',
+            '<span class="label">Handle:</span>     JOEY-DEPEW',
+            '<span class="label">Domain:</span>     joeydepew.com',
+            '<span class="label">Role:</span>       Builder / IT generalist / legal-tech founder',
+            '<span class="label">Status:</span>     ACTIVE — still building'
+          ]);
+        },
+        projects: function () {
+          printBlock([
+            '<span class="label">QDROdl</span>              <a href="https://qdrodl.app/" target="_blank" rel="noopener noreferrer">https://qdrodl.app/</a>',
+            '<span class="label">Homelab in a Box</span>  <a href="https://homelabinabox.app/" target="_blank" rel="noopener noreferrer">https://homelabinabox.app/</a>',
+            '<span class="label">JR Technical</span>      <a href="https://jrtechnicalconsulting.com/" target="_blank" rel="noopener noreferrer">https://jrtechnicalconsulting.com/</a>',
+            '<span class="label">TabStack</span>          <a href="https://github.com/jdepew88/TabStack" target="_blank" rel="noopener noreferrer">TabStack</a>',
+            '<span class="label">TubeStack</span>         <a href="https://github.com/jdepew88/TubeStack" target="_blank" rel="noopener noreferrer">TubeStack</a>',
+            '<span class="label">CCNA Notes</span>        <a href="https://github.com/jdepew88/CCNA-Notes---jdepew88" target="_blank" rel="noopener noreferrer">CCNA Notes</a>'
+          ]);
+        },
+        homelab: function () {
+          appendLine('Opening homelab diagram…');
+          window.location.href = "/homelab/";
+        },
+        github: function () {
+          appendLine('Opening GitHub…');
+          window.open("https://github.com/jdepew88/", "_blank", "noopener,noreferrer");
+        },
+        linkedin: function () {
+          appendLine('Opening LinkedIn…');
+          window.open("https://www.linkedin.com/in/joseph-depew-857459123/", "_blank", "noopener,noreferrer");
+        },
+        stack: function () {
+          printBlock([
+            '<span class="label">Web:</span>         Next.js, TypeScript, React, PostgreSQL, Prisma',
+            '<span class="label">Infra:</span>      Docker, Traefik, Cloudflare, Linux, pfSense, Proxmox',
+            '<span class="label">Storage:</span>    Unraid, backups, VLAN segmentation',
+            '<span class="label">Browser:</span>    Chrome extensions (Manifest V3)',
+            '<span class="label">Network:</span>    Routing, switching, subnetting, CCNA study'
+          ]);
+        },
+        contact: function () {
+          printBlock([
+            '<span class="label">GitHub:</span>   <a href="https://github.com/jdepew88/" target="_blank" rel="noopener noreferrer">github.com/jdepew88</a>',
+            '<span class="label">LinkedIn:</span> <a href="https://www.linkedin.com/in/joseph-depew-857459123/" target="_blank" rel="noopener noreferrer">linkedin.com/in/joseph-depew-857459123</a>',
+            '<span class="label">Email:</span>    <a href="mailto:hello@joeydepew.com">hello@joeydepew.com</a>'
+          ]);
+        },
+        clear: function () {
+          log.innerHTML = "";
+        },
+        home: function () {
+          window.location.href = "/";
+        },
+        ls: function () {
+          commands.projects();
+        },
+        "?": function () {
+          commands.help();
+        }
+      };
+
+      function runCommand(raw) {
+        var line = raw.trim();
+        if (!line) return;
+
+        appendLine('<span class="prompt">guest@joeydepew</span><span class="cmd">:~$ ' + escapeHtml(line) + "</span>");
+        history.push(line);
+        historyIndex = history.length;
+
+        var parts = line.split(/\s+/);
+        var cmd = parts[0].toLowerCase();
+
+        if (commands[cmd]) {
+          commands[cmd]();
+          return;
+        }
+
+        appendLine('command not found: ' + escapeHtml(parts[0]) + '. Type <span class="value">help</span>.', "error");
+      }
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          runCommand(input.value);
+          input.value = "";
+          return;
+        }
+        if (e.key === "ArrowUp") {
+          e.preventDefault();
+          if (history.length === 0) return;
+          if (historyIndex <= 0) historyIndex = 0;
+          else historyIndex -= 1;
+          input.value = history[historyIndex] || "";
+        }
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          if (history.length === 0) return;
+          if (historyIndex >= history.length - 1) {
+            historyIndex = history.length;
+            input.value = "";
+          } else {
+            historyIndex += 1;
+            input.value = history[historyIndex] || "";
+          }
+        }
+      });
+
+      terminal.addEventListener("click", function () {
+        input.focus();
+      });
+
+      input.focus();
+    })();
+  </script>
+</body>
+</html>
