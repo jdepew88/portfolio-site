@@ -30,15 +30,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
+  const previewLink = link || href;
+
   return (
     <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+      {images.length > 0 && (
+        <SmartLink
+          href={previewLink}
+          style={{ display: "block", width: "100%" }}
+          aria-label={`${title} — open project`}
+        >
+          <Carousel
+            sizes="(max-width: 960px) 100vw, 960px"
+            items={images.map((image) => ({
+              slide: image,
+              alt: title,
+            }))}
+          />
+        </SmartLink>
+      )}
       <Flex
         s={{ direction: "column" }}
         fillWidth

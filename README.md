@@ -1,31 +1,43 @@
-# joeydepew.com
+# joeydepew.me
 
-Static personal portfolio for Joseph Depew. Built for GitHub Pages — no build step required.
+Personal portfolio for **Joseph Depew**.
 
-## Pages
+## Stack
 
-| Path | Description |
-|------|-------------|
-| `/` | Homepage |
-| `/homelab/` or `homelab.html` | Homelab diagram image |
-| `/homelab-diagram/` | Redirects to `/homelab/` |
-| `/bio/` or `bio.html` | Command-line bio (`whois joey_depew`) |
-| `/whois/` or `whois_joey_depew.html` | Redirects to `/bio/` |
+- Next.js (static export)
+- Once UI
+- Magic Portfolio foundation
+- MDX
+- TypeScript
+- Cloudflare Pages
 
-## Local preview
+## Local development
 
 ```bash
-# Python
-python -m http.server 8080
-
-# or npx
-npx serve .
+npm install
+npm run dev
+npm run build
 ```
 
-Open `http://localhost:8080`
+## Cloudflare Pages
 
-## GitHub Pages
+- **Build command**: `npm run build`
+- **Build output directory**: `out`
+- **Node version**: `22`
 
-1. Push this repo to GitHub.
-2. Settings → Pages → Source: deploy from `main` branch, root `/`.
-3. Point `joeydepew.com` DNS to GitHub Pages.
+Note: this site deploys to **Cloudflare Pages**, not GitHub Pages.
+
+## Static export constraints (do not break)
+
+- `output: "export"` in `next.config.mjs`
+- `images.unoptimized = true`
+- No active `src/app/api` routes
+- No dynamic `robots` route
+- No dynamic `sitemap` route
+- `npm run build` must create `/out`
+
+## Attribution / licensing
+
+This project is based on **Magic Portfolio** and uses **Once UI**.
+
+Template usage requires keeping the Once UI attribution link in the site footer unless you have a Pro license.

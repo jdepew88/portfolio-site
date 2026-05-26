@@ -13,27 +13,30 @@ import {
 } from "@/types";
 import { home } from "./index";
 
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+// IMPORTANT: Domain used for SEO meta tags and schema
+const baseURL: string = "https://joeydepew.me";
 
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
+  "/education": true,
   "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/homelab": true,
+  "/bio": true,
+  "/blog": false,
+  "/gallery": false,
 };
 
 const display: DisplayConfig = {
-  location: true,
-  time: true,
+  location: false,
+  time: false,
   themeSwitcher: true,
 };
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
 const protectedRoutes: ProtectedRoutesConfig = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  // Keep empty unless you intentionally password-protect a project route
 };
 
 // Import and set font for each variant
@@ -75,8 +78,8 @@ const fonts: FontsConfig = {
 const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "gray", // sand | gray | slate | mint | rose | dusk | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  brand: "moss", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "green", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative | sharp
@@ -108,18 +111,18 @@ const effects: EffectsConfig = {
   },
   gradient: {
     display: false,
-    opacity: 100,
+    opacity: 35,
     x: 50,
-    y: 60,
+    y: 20,
     width: 100,
-    height: 50,
+    height: 80,
     tilt: 0,
-    colorStart: "accent-background-strong",
+    colorStart: "brand-alpha-weak",
     colorEnd: "page-background",
   },
   dots: {
     display: true,
-    opacity: 40,
+    opacity: 28,
     size: "2",
     color: "brand-background-strong",
   },
@@ -187,17 +190,17 @@ const mailchimp: MailchimpConfig = {
 // default schema data
 const schema: SchemaConfig = {
   logo: "",
-  type: "Organization",
-  name: "Once UI",
+  type: "Person",
+  name: "Joseph Depew",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "hello@joeydepew.me",
 };
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  threads: "",
+  linkedin: "https://www.linkedin.com/in/joseph-depew-857459123/",
+  discord: "",
 };
 
 // social sharing configuration for blog posts

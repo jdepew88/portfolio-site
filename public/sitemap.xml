@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://joeydepew.com/</loc>
+    <loc>https://joeydepew.me/</loc>
   </url>
   <url>
-    <loc>https://joeydepew.com/about</loc>
+    <loc>https://joeydepew.me/about</loc>
   </url>
   <url>
-    <loc>https://joeydepew.com/work</loc>
+    <loc>https://joeydepew.me/education</loc>
   </url>
   <url>
-    <loc>https://joeydepew.com/homelab</loc>
+    <loc>https://joeydepew.me/work</loc>
   </url>
   <url>
-    <loc>https://joeydepew.com/bio</loc>
+    <loc>https://joeydepew.me/homelab</loc>
+  </url>
+  <url>
+    <loc>https://joeydepew.me/bio</loc>
   </url>
 </urlset>

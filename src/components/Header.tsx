@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, about, work } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -90,6 +90,25 @@ export const Header = () => {
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              {routes["/work"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      href="/work"
+                      label="Projects"
+                      selected={pathname.startsWith("/work")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      href="/work"
+                      selected={pathname.startsWith("/work")}
+                    />
+                  </Row>
+                </>
+              )}
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -109,63 +128,85 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/work"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/blog"] && (
+              {routes["/education"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
+                      href="/education"
+                      label="Education"
+                      selected={pathname === "/education"}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
+                      href="/education"
+                      selected={pathname === "/education"}
                     />
                   </Row>
                 </>
               )}
-              {routes["/gallery"] && (
+              {routes["/homelab"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="server"
+                      href="/homelab"
+                      label="Homelab"
+                      selected={pathname === "/homelab"}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="server"
+                      href="/homelab"
+                      selected={pathname === "/homelab"}
                     />
                   </Row>
                 </>
               )}
+              {routes["/bio"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="terminal"
+                      href="/bio"
+                      label="Bio"
+                      selected={pathname === "/bio"}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="terminal"
+                      href="/bio"
+                      selected={pathname === "/bio"}
+                    />
+                  </Row>
+                </>
+              )}
+              <>
+                <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                <Row s={{ hide: true }}>
+                  <ToggleButton prefixIcon="github" href="https://github.com/jdepew88/" label="GitHub" />
+                </Row>
+                <Row hide s={{ hide: false }}>
+                  <ToggleButton prefixIcon="github" href="https://github.com/jdepew88/" />
+                </Row>
+                <Row s={{ hide: true }}>
+                  <ToggleButton
+                    prefixIcon="linkedin"
+                    href="https://www.linkedin.com/in/joseph-depew-857459123/"
+                    label="LinkedIn"
+                  />
+                </Row>
+                <Row hide s={{ hide: false }}>
+                  <ToggleButton
+                    prefixIcon="linkedin"
+                    href="https://www.linkedin.com/in/joseph-depew-857459123/"
+                  />
+                </Row>
+              </>
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />

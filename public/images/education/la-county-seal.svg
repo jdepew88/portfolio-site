@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Los Angeles County seal">
+  <defs>
+    <path id="topArc" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+    <path id="bottomArc" d="M 170 100 A 70 70 0 0 1 30 100" fill="none"/>
+  </defs>
+  <circle cx="100" cy="100" r="98" fill="#f4e8c8" stroke="#1e3a5f" stroke-width="4"/>
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#1e3a5f" letter-spacing="1.5">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">COUNTY OF LOS ANGELES</textPath>
+  </text>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#1e3a5f" letter-spacing="2">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">CALIFORNIA</textPath>
+  </text>
+  <circle cx="100" cy="102" r="42" fill="#e8dcc0" stroke="#1e3a5f" stroke-width="1.5"/>
+  <ellipse cx="100" cy="108" rx="14" ry="20" fill="#8b6914"/>
+  <path fill="#2d6a4f" d="M72 118c8-14 20-22 28-22s20 8 28 22c-10 6-20 9-28 9s-18-3-28-9z"/>
+  <text x="100" y="158" text-anchor="middle" fill="#1e3a5f" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="600">EST. 1850</text>
+</svg>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Depew | joeydepew.com</title>
+  <meta name="description" content="Joseph Depew - systems-focused technician for sysadmin and network engineering roles." />
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #00ff00;
+      --text: #cccccc;
+      --hover: #ff0000;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      padding: 1%;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--fg);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: var(--hover);
+    }
+
+    .console {
+      color: var(--fg);
+      font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 70vh;
+      padding-bottom: 80px;
+    }
+
+    .boot-output {
+      margin-bottom: 0.35em;
+    }
+
+    .boot-body {
+      display: block;
+      margin-top: 0.35em;
+    }
+
+    .boot-output > .prompt + .boot-cmd,
+    .history-line > .prompt + span {
+      margin-left: 2ch;
+    }
+
+    .input-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+
+    .input-line > .cmd-input {
+      margin-left: 2ch;
+    }
+
+    .history-line {
+      display: block;
+      margin: 0.35em 0 0;
+    }
+
+    .prompt,
+    .cursor {
+      color: var(--fg);
+    }
+
+    .prompt {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cursor {
+      animation: blink 0.7s step-end infinite;
+    }
+
+    .cmd-input {
+      background: transparent;
+      border: 0;
+      outline: none;
+      color: var(--fg);
+      font: inherit;
+      width: auto;
+      min-width: 1ch;
+      max-width: 90vw;
+      caret-color: transparent;
+      padding: 0;
+      margin: 0;
+      flex: 0 0 auto;
+    }
+
+    .floating-link {
+      position: fixed;
+      bottom: 0;
+      color: var(--fg);
+      z-index: 10;
+      user-select: none;
+      padding: 0.5rem 0.75rem;
+      font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    }
+
+    .pi { right: 0; }
+    .hint { left: 0; font-size: 0.9rem; }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="console" id="console">
+    <div id="boot-output" class="boot-output" aria-live="polite"></div>
+    <noscript>
+newuser@portfolio~$ whois joeydepew.com
+
+Joseph Depew is a systems-focused technician, legal document assistant, and builder positioning himself in systems administration, network engineering, automation, and legal-tech workflows. His work connects IT support, infrastructure, document systems, and user-facing tools.
+
+He is comfortable across Windows, Linux, networking, virtualization, web deployment, remote access, browser-based tools, and structured document automation. His focus is making complex processes more repeatable, understandable, secure, operational, and easier to support.
+
+His technical background includes hands-on troubleshooting, small-environment systems administration, network lab work, VLANs, firewalls, DNS, remote access, Linux servers, web hosting, deployment workflows, documentation, and practical DevOps-style tooling. He understands full-stack web applications well enough to build, configure, deploy, troubleshoot, and support them.
+
+He builds with an operator's mindset: document the system, secure the weak points, make the process repeatable, keep it maintainable, and keep it operational.
+
+Links: <a href="https://www.linkedin.com/in/joseph-depew-857459123/">LinkedIn</a>, <a href="https://github.com/jdepew88/">GitHub</a>
+
+Type help for commands.
+    </noscript>
+  </div>
+
+  <div class="floating-link hint" id="hint">type <strong>help</strong></div>
+  <div class="floating-link pi"><a href="#" id="pi-link">&pi;</a></div>
+
+  <script>
+    const PROMPT_LABEL = 'newuser@portfolio~$';
+    const PROMPT_HTML = '<span class="prompt">' + PROMPT_LABEL + '</span>';
+
+    const LINKEDIN_URL = 'https://www.linkedin.com/in/joseph-depew-857459123/';
+    const GITHUB_URL = 'https://github.com/jdepew88/';
+    const HOMELAB_URL = '/homelab';
+    const PROJECTS_URL = '/work';
+    const HPESOJ_URL = 'https://imgur.com/a/UcU4srD';
+
+    const profileLines = [
+      'whois joeydepew.com',
+      '',
+      'Joseph Depew is a systems-focused technician, legal document assistant, and builder positioning himself in systems administration, network engineering, automation, and legal-tech workflows. His work connects IT support, infrastructure, document systems, and user-facing tools.',
+      '',
+      'He is comfortable across Windows, Linux, networking, virtualization, web deployment, remote access, browser-based tools, and structured document automation. His focus is making complex processes more repeatable, understandable, secure, operational, and easier to support.',
+      '',
+      'His technical background includes hands-on troubleshooting, small-environment systems administration, network lab work, VLANs, firewalls, DNS, remote access, Linux servers, web hosting, deployment workflows, documentation, and practical DevOps-style tooling. He understands full-stack web applications well enough to build, configure, deploy, troubleshoot, and support them.',
+      '',
+      'He builds with an operator\'s mindset: document the system, secure the weak points, make the process repeatable, keep it maintainable, and keep it operational.',
+      '',
+      'Links: <a href="' + LINKEDIN_URL + '" target="_blank" rel="noopener noreferrer">LinkedIn</a>, <a href="' + GITHUB_URL + '" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="' + PROJECTS_URL + '">Projects</a>',
+      '',
+      'Type help for commands.'
+    ];
+
+    const piArt = [
+      '.MMMMM7       7MMMMM',
+      '  ZMMMM7       7MMMMM                                888888888888888888888',
+      '  MMMMM7         MMMM                              .8888888888888888888888',
+      '  MMMMM7       =MMMMM                       .88888888888888888888 .',
+      '  MMMMM        .MMMMM      MMMMM      MMMM     MMMMMM .88888888:  .. .. .. .',
+      '  MMMMMMMMMMMMMMMMMM:.   .MMMMMMM     MMMMM   MMMMM. .888888888',
+      '  MMMMMMMMMMMMMMMMMMM    .MMMMMMM?    MMMMM ?MMMMM   888888888. . ..888:.',
+      '  MMMMMMMM=MMMMMMMMMM    MMMM MMMM    MMMMMMMMMM    .888888888888888888888:',
+      '  MMMMM         MMMMM    $MMMM NMMMM    MMMMMMMMM    .88888888888888888888888.',
+      '   MMMM         MMMMM    MMMM.  MMMM~   MMO MIMMMMI.8888888888.~=88888888888',
+      '  MMMMM=        MMMMM   MMMMMMMMMMMMM   MMM    MMMM.88888888.    $888888888.',
+      '  MMMMMI        MMMMM   MMMMMMMMMMMMM   MMM    MMMMMM            8888888888',
+      '  MMMMMM       = MMMM  MMMMMM       . .   MMMM    MMMMMM          78888888888',
+      '  MMMMMI       ~MMMMM  MMMM       MMMM,MMMM      M  MMM         8888888888.',
+      '',
+      '7Ru57 y0uR 73(Hn01u57                         .. eef5204d6a88 .'
+    ].join('<br>');
+
+    const cowArt = [
+      '        \\\\   ^__^',
+      '         \\\\  (oo)\\\\_______',
+      '            (__)\\\\       )\\\\/\\\\',
+      '                ||----w |',
+      '                ||     ||'
+    ].join('<br>');
+
+    const dragonArt = [
+      '                    / \\\\  //\\',
+      '             |\\___/|      \\\\//',
+      '             /O  O  \\\__     //',
+      '            /     /  \\_\\_  //',
+      '            @___@\'    \\/_ //',
+      '               |       \\///',
+      '               |        \\/',
+      '               |         |',
+      '               |         |',
+      '               |         |',
+      '               |         |',
+      '          _____|_________|_____'
+    ].join('<br>');
+
+    const consoleEl = document.getElementById('console');
+    const bootOutputEl = document.getElementById('boot-output');
+    const piLink = document.getElementById('pi-link');
+    const hintEl = document.getElementById('hint');
+
+    let typingToken = 0;
+    let inputEnabled = false;
+    let currentInput = null;
+    let currentLine = null;
+
+    function sleep(ms) {
+      return new Promise(function(resolve) { setTimeout(resolve, ms); });
+    }
+
+    async function typeHtml(target, html, speed) {
+      const token = ++typingToken;
+      target.innerHTML = '';
+      for (let i = 0; i <= html.length; i += 1) {
+        if (token !== typingToken) return;
+        target.innerHTML = html.slice(0, i);
+        window.scrollTo(0, document.body.scrollHeight);
+        await sleep(speed || 2);
+      }
+    }
+
+    function appendBlock(html) {
+      const block = document.createElement('div');
+      block.innerHTML = html;
+      consoleEl.appendChild(block);
+      return block;
+    }
+
+    function appendTextBlock(text) {
+      const block = document.createElement('div');
+      block.innerHTML = String(text).replace(/\n/g, '<br>');
+      consoleEl.appendChild(block);
+      return block;
+    }
+
+    function addBreak(count) {
+      const n = count || 1;
+      for (let i = 0; i < n; i += 1) {
+        consoleEl.appendChild(document.createElement('br'));
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function createInputLine() {
+      const line = document.createElement('div');
+      line.className = 'input-line';
+      line.innerHTML = PROMPT_HTML;
+
+      const input = document.createElement('input');
+      input.className = 'cmd-input';
+      input.type = 'text';
+      input.autocomplete = 'off';
+      input.autocapitalize = 'off';
+      input.spellcheck = false;
+      input.size = 1;
+      input.setAttribute('aria-label', 'Terminal input');
+
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      cursor.textContent = '|';
+
+      input.addEventListener('input', function() {
+        input.size = Math.max(1, input.value.length || 1);
+      });
+
+      line.appendChild(input);
+      line.appendChild(cursor);
+      consoleEl.appendChild(line);
+
+      currentInput = input;
+      currentLine = line;
+      inputEnabled = true;
+      input.focus();
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function freezeInputLine(command) {
+      if (!currentLine) return;
+      currentLine.className = 'history-line';
+      currentLine.innerHTML = PROMPT_HTML + '<span>' + escapeHtml(command) + '</span>';
+      currentInput = null;
+      currentLine = null;
+      inputEnabled = false;
+    }
+
+    function showPrompt() {
+      createInputLine();
+    }
+
+    function hideHint() {
+      if (hintEl) hintEl.style.display = 'none';
+    }
+
+    function openLink(url) {
+      if (!url) {
+        appendTextBlock('Link not set yet.');
+        showPrompt();
+        return;
+      }
+      appendBlock('Opening <a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a> ...');
+      window.open(url, '_blank', 'noopener');
+      showPrompt();
+    }
+
+    function hpesojOutput() {
+      return new Array(10).fill('mynameisJoe').join('<br>') + '<br><a href="' + HPESOJ_URL + '" target="_blank" rel="noopener noreferrer">' + HPESOJ_URL + '</a>';
+    }
+
+    function vibecoderOutput() {
+      return {
+        type: 'text',
+        value: [
+          'vibecheck: passed',
+          'AI helped me move faster.',
+          'It did not configure the servers, debug the builds, structure the workflows, read the logs, fix the permissions, write the docs, or keep the systems operational.',
+          'The prompt is not the product.',
+          'The product is the working system.'
+        ].join('\n')
+      };
+    }
+
+    const commands = {
+      help: function() {
+        return {
+          type: 'text',
+          value: [
+            'Available commands:',
+            'help       - list commands',
+            'whois      - main profile blurb',
+            'projects   - current focus areas',
+            'skills     - core admin/networking stack',
+            'contact    - how to reach me',
+            'github     - open GitHub',
+            'linkedin   - open LinkedIn',
+            'lab        - describe hands-on environment',
+            'infra      - quick systems summary',
+            'homelab    - open homelab gallery',
+            'clear      - clear terminal',
+            '',
+            'Some commands are not listed.',
+            'Hint: try "easteregg"'
+          ].join('\n')
+        };
+      },
+      whois: function() {
+        return {
+          type: 'text',
+          value: [
+            'Joseph Depew',
+            '',
+            'Systems-focused technician, legal document assistant, and builder — sysadmin, networking, automation, and legal-tech workflows.',
+            '',
+            'Operator mindset: document the system, secure weak points, make it repeatable, maintainable, and operational.'
+          ].join('\n')
+        };
+      },
+      projects: function() {
+        return {
+          type: 'html',
+          value: [
+            '- <a href="' + HOMELAB_URL + '">Homelab</a> and self-hosted infrastructure',
+            '- <a href="' + PROJECTS_URL + '">Projects</a>: QDROdl, Homelab in a Box, Chrome extensions',
+            '- Repeatable server and service deployments',
+            '- Network-focused troubleshooting and segmentation work'
+          ].join('<br>')
+        };
+      },
+      skills: function() {
+        return {
+          type: 'text',
+          value: [
+            '- Windows and Linux administration',
+            '- Networking, VLANs, routing/switching fundamentals, remote access',
+            '- Virtualization, storage, backups, and service recovery',
+            '- Bash, Python, HTML/CSS/JS, automation-minded setup work',
+            '- Documentation, troubleshooting, and operational cleanup',
+            '',
+            'AI-assisted workflow available on request.'
+          ].join('\n')
+        };
+      },
+      contact: function() {
+        return {
+          type: 'html',
+          value: 'LinkedIn: <a href="' + LINKEDIN_URL + '" target="_blank" rel="noopener noreferrer">LinkedIn</a><br>GitHub: <a href="' + GITHUB_URL + '" target="_blank" rel="noopener noreferrer">GitHub</a>'
+        };
+      },
+      github: function() { return { type: 'link', value: GITHUB_URL }; },
+      linkedin: function() { return { type: 'link', value: LINKEDIN_URL }; },
+      homelab: function() { return { type: 'link', value: HOMELAB_URL }; },
+      lab: function() {
+        return {
+          type: 'html',
+          value: [
+            'I learn by building: <a href="' + HOMELAB_URL + '" target="_blank" rel="noopener noreferrer">homelab</a>, test networks, self-hosted services, virtualization, restore workflows, and real admin tasks in a lab environment.',
+            'That gives me a place to break things on purpose, document the fix, and make the next deployment cleaner.'
+          ].join('<br>')
+        };
+      },
+      infra: function() {
+        return {
+          type: 'text',
+          value: 'Practical focus areas: host setup, networking, service reliability, remote administration, backups, and keeping systems understandable after handoff.'
+        };
+      },
+      clear: function() { return { type: 'clear' }; },
+      backwards: function() { return { type: 'text', value: 'hpesoj' }; },
+      hpesoj: function() { return { type: 'html', value: hpesojOutput() }; },
+      paulisnotdead: function() {
+        return {
+          type: 'text',
+          value: [
+            'Turn me on, dead man.',
+            'Or maybe the internet just needed a conspiracy.'
+          ].join('\n')
+        };
+      },
+      cowsay: function() { return { type: 'html', value: cowArt }; },
+      dns: function() { return { type: 'text', value: "It's always DNS." }; },
+      itwasdns: function() { return { type: 'text', value: 'duh' }; },
+      '1988': function() { return { type: 'html', value: 'Year of the Dragon<br><br>' + dragonArt }; },
+      ihaveseenthisbefore: function() { return { type: 'link', value: 'https://darren.kitchen' }; },
+      easteregg: function() {
+        return {
+          type: 'text',
+          value: [
+            'Hidden commands:',
+            'backwards',
+            'hpesoj',
+            'paulisnotdead',
+            'cowsay',
+            'dns',
+            'itwasdns',
+            'helo',
+            '1988',
+            'ihaveseenthisbefore',
+            'vibecoder',
+            'vibecheck'
+          ].join('\n')
+        };
+      },
+      helo: function() {
+        return {
+          type: 'text',
+          value: 'You misspelled help. That said, I respect the hustle.'
+        };
+      },
+      vibecoder: function() { return vibecoderOutput(); },
+      vibecheck: function() { return vibecoderOutput(); }
+    };
+
+    async function boot() {
+      if (!bootOutputEl) {
+        showPrompt();
+        return;
+      }
+
+      bootOutputEl.innerHTML =
+        PROMPT_HTML +
+        '<span class="boot-cmd">whois joeydepew.com</span>' +
+        '<div id="boot-body" class="boot-body"></div>';
+
+      const bootBodyEl = document.getElementById('boot-body');
+      const introHtml = profileLines.slice(2).join('<br>');
+      await typeHtml(bootBodyEl, introHtml, 0);
+      showPrompt();
+    }
+
+    function runCommand(raw) {
+      const input = raw.trim();
+      hideHint();
+      const command = input.toLowerCase();
+      freezeInputLine(input);
+
+      if (!command) {
+        showPrompt();
+        return;
+      }
+
+      const handler = commands[command];
+      if (!handler) {
+        addBreak(1);
+        appendTextBlock('Command not found: ' + command);
+        showPrompt();
+        return;
+      }
+
+      const result = handler();
+
+      if (result.type === 'clear') {
+        location.reload();
+        return;
+      }
+
+      addBreak(1);
+
+      if (result.type === 'text') {
+        appendTextBlock(result.value);
+        showPrompt();
+        return;
+      }
+
+      if (result.type === 'html') {
+        appendBlock(result.value);
+        showPrompt();
+        return;
+      }
+
+      if (result.type === 'link') {
+        openLink(result.value);
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (!inputEnabled || !currentInput) return;
+      if (document.activeElement !== currentInput) currentInput.focus();
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        runCommand(currentInput.value);
+      }
+    });
+
+    document.addEventListener('click', function() {
+      if (currentInput) currentInput.focus();
+    });
+
+    piLink.addEventListener('click', function(event) {
+      hideHint();
+      event.preventDefault();
+      addBreak(1);
+      appendBlock(piArt);
+      showPrompt();
+    });
+
+    boot();
+  </script>
+</body>
+</html>

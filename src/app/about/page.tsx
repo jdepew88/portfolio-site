@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Button,
   Column,
   Heading,
@@ -93,7 +92,21 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <Row
+              border="neutral-alpha-weak"
+              radius="l"
+              overflow="hidden"
+              style={{ maxWidth: "12rem", width: "100%" }}
+            >
+              <Media
+                enlarge
+                radius="l"
+                alt="Joseph Depew"
+                src={person.avatar}
+                aspectRatio="3 / 4"
+                sizes="(max-width: 768px) 192px, 192px"
+              />
+            </Row>
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
