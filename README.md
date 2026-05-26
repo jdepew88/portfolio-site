@@ -35,10 +35,27 @@ The build runs `next build` plus a small postbuild step (`scripts/postbuild-stat
 - TypeScript
 - Sass
 
+## Environment files
+
+| File | On GitHub? | Purpose |
+| --- | --- | --- |
+| `.gitignore` | Yes | Ignores `.env`, build output, and local secrets |
+| `.env.example` | Yes | Safe template — copy this to create `.env` |
+| `.env` | **No** | Your local secrets (never pushed) |
+
+After cloning:
+
+```bash
+npm run setup:env   # creates .env from .env.example if missing
+```
+
+Edit `.env` with your Cloudflare account ID and API token for Wrangler deploys. Production builds on Cloudflare Pages use dashboard environment variables (e.g. `NODE_VERSION=22`), not `.env` in the repo.
+
 ## Local development
 
 ```bash
 npm install
+npm run setup:env
 npm run dev
 ```
 

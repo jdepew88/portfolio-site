@@ -6,6 +6,7 @@
     "export": "next export",
     "build": "next build && node scripts/postbuild-static.mjs",
     "preview": "npm run build && npx --yes serve out -l 4173",
+    "setup:env": "node scripts/setup-env.mjs",
     "biome-write": "npx @biomejs/biome format --write .",
     "start": "next start",
     "lint": "next lint"
