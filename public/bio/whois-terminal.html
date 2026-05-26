@@ -57,11 +57,6 @@
       margin-top: 0.35em;
     }
 
-    .boot-output > .prompt + .boot-cmd,
-    .history-line > .prompt + span {
-      margin-left: 2ch;
-    }
-
     .input-line {
       display: flex;
       align-items: center;
@@ -69,8 +64,10 @@
       width: 100%;
     }
 
-    .input-line > .cmd-input {
-      margin-left: 2ch;
+    .prompt-gap {
+      white-space: pre;
+      flex-shrink: 0;
+      user-select: none;
     }
 
     .history-line {
@@ -78,18 +75,10 @@
       margin: 0.35em 0 0;
     }
 
-    .prompt,
-    .cursor {
-      color: var(--fg);
-    }
-
     .prompt {
+      color: var(--fg);
       white-space: nowrap;
       flex-shrink: 0;
-    }
-
-    .cursor {
-      animation: blink 0.7s step-end infinite;
     }
 
     .cmd-input {
@@ -98,13 +87,23 @@
       outline: none;
       color: var(--fg);
       font: inherit;
-      width: auto;
-      min-width: 1ch;
-      max-width: 90vw;
-      caret-color: transparent;
+      caret-color: var(--fg);
       padding: 0;
       margin: 0;
-      flex: 0 0 auto;
+      flex: 1 1 auto;
+      min-width: 1ch;
+      width: auto;
+      max-width: 100%;
+    }
+
+    .ascii-output {
+      margin: 0;
+      padding: 0;
+      font: inherit;
+      color: var(--fg);
+      white-space: pre-wrap;
+      word-break: normal;
+      overflow-x: auto;
     }
 
     .floating-link {
@@ -123,6 +122,36 @@
     @keyframes blink {
       50% { opacity: 0; }
     }
+
+    .neofetch-output {
+      white-space: pre;
+      font-family: inherit;
+      line-height: 1.1;
+    }
+
+    .neofetch-output .nf-blue { color: #3990d8; }
+    .neofetch-output .nf-cyan { color: #3890b0; }
+    .neofetch-output .nf-text { color: #c8c8c8; }
+    .neofetch-output .nf-bright { color: #f0f0f0; }
+    .neofetch-output .nf-magenta { color: #b00098; }
+    .neofetch-output .nf-gray { color: #c8c8c8; }
+    .neofetch-output .nf-dim { color: #707070; }
+
+    .neofetch-output .nf-swatch-blue { background: #0030d8; color: #0030d8; }
+    .neofetch-output .nf-swatch-green { background: #10a008; color: #10a008; }
+    .neofetch-output .nf-swatch-cyan { background: #3890d8; color: #3890d8; }
+    .neofetch-output .nf-swatch-red { background: #c00818; color: #c00818; }
+    .neofetch-output .nf-swatch-purple { background: #881098; color: #881098; }
+    .neofetch-output .nf-swatch-yellow { background: #c09800; color: #c09800; }
+    .neofetch-output .nf-swatch-white { background: #c8c8c8; color: #c8c8c8; }
+    .neofetch-output .nf-swatch-bright-black { background: #707070; color: #707070; }
+    .neofetch-output .nf-swatch-bright-blue { background: #3978f8; color: #3978f8; }
+    .neofetch-output .nf-swatch-bright-green { background: #10c008; color: #10c008; }
+    .neofetch-output .nf-swatch-bright-cyan { background: #60d0d0; color: #60d0d0; }
+    .neofetch-output .nf-swatch-bright-red { background: #d84858; color: #d84858; }
+    .neofetch-output .nf-swatch-bright-purple { background: #b000b8; color: #b000b8; }
+    .neofetch-output .nf-swatch-bright-yellow { background: #f8f0a0; color: #f8f0a0; }
+    .neofetch-output .nf-swatch-bright-white { background: #f0f0f0; color: #f0f0f0; }
   </style>
 </head>
 <body>
@@ -148,9 +177,14 @@ Type help for commands.
   <div class="floating-link hint" id="hint">type <strong>help</strong></div>
   <div class="floating-link pi"><a href="#" id="pi-link">&pi;</a></div>
 
+  <script src="/bio/assets/js/cowsay.js"></script>
+  <script src="/bio/assets/js/fake-neofetch.js"></script>
+  <script src="/bio/assets/js/fake-cmatrix.js"></script>
   <script>
     const PROMPT_LABEL = 'newuser@portfolio~$';
     const PROMPT_HTML = '<span class="prompt">' + PROMPT_LABEL + '</span>';
+    const PROMPT_GAP_HTML = '<span class="prompt-gap">  </span>';
+    const PROMPT_LINE_HTML = PROMPT_HTML + PROMPT_GAP_HTML;
 
     const LINKEDIN_URL = 'https://www.linkedin.com/in/joseph-depew-857459123/';
     const GITHUB_URL = 'https://github.com/jdepew88/';
@@ -193,29 +227,6 @@ Type help for commands.
       '7Ru57 y0uR 73(Hn01u57                         .. eef5204d6a88 .'
     ].join('<br>');
 
-    const cowArt = [
-      '        \\\\   ^__^',
-      '         \\\\  (oo)\\\\_______',
-      '            (__)\\\\       )\\\\/\\\\',
-      '                ||----w |',
-      '                ||     ||'
-    ].join('<br>');
-
-    const dragonArt = [
-      '                    / \\\\  //\\',
-      '             |\\___/|      \\\\//',
-      '             /O  O  \\\__     //',
-      '            /     /  \\_\\_  //',
-      '            @___@\'    \\/_ //',
-      '               |       \\///',
-      '               |        \\/',
-      '               |         |',
-      '               |         |',
-      '               |         |',
-      '               |         |',
-      '          _____|_________|_____'
-    ].join('<br>');
-
     const consoleEl = document.getElementById('console');
     const bootOutputEl = document.getElementById('boot-output');
     const piLink = document.getElementById('pi-link');
@@ -241,18 +252,74 @@ Type help for commands.
       }
     }
 
-    function appendBlock(html) {
+    function renderOutput(content, options) {
+      const opts = options || {};
       const block = document.createElement('div');
-      block.innerHTML = html;
+      if (opts.html) {
+        block.innerHTML = String(content);
+      } else {
+        block.style.whiteSpace = 'pre-wrap';
+        block.textContent = String(content);
+      }
+      consoleEl.appendChild(block);
+      window.scrollTo(0, document.body.scrollHeight);
+      return block;
+    }
+
+    function appendBlock(html) {
+      return renderOutput(html, { html: true });
+    }
+
+    function appendTextBlock(text) {
+      return renderOutput(text, { html: false });
+    }
+
+    function appendAsciiBlock(text) {
+      const block = document.createElement('pre');
+      block.className = 'ascii-output';
+      block.textContent = String(text);
       consoleEl.appendChild(block);
       return block;
     }
 
-    function appendTextBlock(text) {
-      const block = document.createElement('div');
-      block.innerHTML = String(text).replace(/\n/g, '<br>');
-      consoleEl.appendChild(block);
-      return block;
+    function runCowSay(args) {
+      if (!window.CowSay || typeof window.CowSay.say !== 'function') {
+        return 'cowsay is not available.';
+      }
+      return window.CowSay.say(args);
+    }
+
+    function runNeofetch() {
+      if (!window.FakeNeofetch || typeof window.FakeNeofetch.run !== 'function') {
+        return { error: 'neofetch module failed to load.' };
+      }
+      return window.FakeNeofetch.run();
+    }
+
+    function printLine(text) {
+      appendTextBlock(String(text));
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function runCmatrix() {
+      if (!window.fakeCmatrix || typeof window.fakeCmatrix.start !== 'function') {
+        return 'cmatrix module not loaded.';
+      }
+
+      inputEnabled = false;
+      if (currentInput) currentInput.blur();
+
+      printLine('Starting cmatrix...');
+      printLine('Press ESC, Ctrl+C, or any key to exit.');
+
+      window.fakeCmatrix.start(function(line) {
+        printLine(line);
+        if (line === 'cmatrix terminated.') {
+          showPrompt();
+        }
+      });
+
+      return null;
     }
 
     function addBreak(count) {
@@ -274,7 +341,7 @@ Type help for commands.
     function createInputLine() {
       const line = document.createElement('div');
       line.className = 'input-line';
-      line.innerHTML = PROMPT_HTML;
+      line.innerHTML = PROMPT_LINE_HTML;
 
       const input = document.createElement('input');
       input.className = 'cmd-input';
@@ -282,32 +349,32 @@ Type help for commands.
       input.autocomplete = 'off';
       input.autocapitalize = 'off';
       input.spellcheck = false;
-      input.size = 1;
-      input.setAttribute('aria-label', 'Terminal input');
-
-      const cursor = document.createElement('span');
-      cursor.className = 'cursor';
-      cursor.textContent = '|';
-
-      input.addEventListener('input', function() {
-        input.size = Math.max(1, input.value.length || 1);
-      });
+      input.setAttribute('aria-label', 'Terminal command');
+      input.setAttribute('enterkeyhint', 'go');
 
       line.appendChild(input);
-      line.appendChild(cursor);
       consoleEl.appendChild(line);
+
+      line.addEventListener('click', function(event) {
+        if (event.target === input) return;
+        input.focus();
+        const end = input.value.length;
+        input.setSelectionRange(end, end);
+      });
 
       currentInput = input;
       currentLine = line;
       inputEnabled = true;
       input.focus();
+      const end = input.value.length;
+      input.setSelectionRange(end, end);
       window.scrollTo(0, document.body.scrollHeight);
     }
 
     function freezeInputLine(command) {
       if (!currentLine) return;
       currentLine.className = 'history-line';
-      currentLine.innerHTML = PROMPT_HTML + '<span>' + escapeHtml(command) + '</span>';
+      currentLine.innerHTML = PROMPT_LINE_HTML + '<span>' + escapeHtml(command) + '</span>';
       currentInput = null;
       currentLine = null;
       inputEnabled = false;
@@ -365,6 +432,9 @@ Type help for commands.
             'lab        - describe hands-on environment',
             'infra      - quick systems summary',
             'homelab    - open homelab gallery',
+            'neofetch   - Display fake system specs for Joey\'s desktop',
+            'cowsay     - ASCII animals; run cowsay -help for usage',
+            'cmatrix    - Start Matrix terminal rain',
             'clear      - clear terminal',
             '',
             'Some commands are not listed.',
@@ -445,10 +515,8 @@ Type help for commands.
           ].join('\n')
         };
       },
-      cowsay: function() { return { type: 'html', value: cowArt }; },
       dns: function() { return { type: 'text', value: "It's always DNS." }; },
       itwasdns: function() { return { type: 'text', value: 'duh' }; },
-      '1988': function() { return { type: 'html', value: 'Year of the Dragon<br><br>' + dragonArt }; },
       ihaveseenthisbefore: function() { return { type: 'link', value: 'https://darren.kitchen' }; },
       easteregg: function() {
         return {
@@ -458,7 +526,6 @@ Type help for commands.
             'backwards',
             'hpesoj',
             'paulisnotdead',
-            'cowsay',
             'dns',
             'itwasdns',
             'helo',
@@ -486,7 +553,7 @@ Type help for commands.
       }
 
       bootOutputEl.innerHTML =
-        PROMPT_HTML +
+        PROMPT_LINE_HTML +
         '<span class="boot-cmd">whois joeydepew.com</span>' +
         '<div id="boot-body" class="boot-body"></div>';
 
@@ -499,18 +566,57 @@ Type help for commands.
     function runCommand(raw) {
       const input = raw.trim();
       hideHint();
-      const command = input.toLowerCase();
       freezeInputLine(input);
 
-      if (!command) {
+      if (!input) {
         showPrompt();
         return;
       }
 
-      const handler = commands[command];
+      const parts = input.split(/\s+/);
+      const commandName = parts[0].toLowerCase();
+      const commandArgs = parts.slice(1);
+
+      if (commandName === 'cowsay') {
+        addBreak(1);
+        appendAsciiBlock(runCowSay(commandArgs));
+        showPrompt();
+        return;
+      }
+
+      if (commandName === '1988') {
+        addBreak(1);
+        appendAsciiBlock(runCowSay(['-f', 'dragon', '1988', 'Year', 'of', 'the', 'Dragon']));
+        showPrompt();
+        return;
+      }
+
+      if (commandName === 'neofetch' || commandName === 'neoftech') {
+        addBreak(1);
+        const neofetchResult = runNeofetch();
+        if (neofetchResult.error) {
+          renderOutput(neofetchResult.error, { html: false });
+        } else {
+          renderOutput(neofetchResult.content, { html: neofetchResult.html });
+        }
+        showPrompt();
+        return;
+      }
+
+      if (commandName === 'cmatrix' || commandName === 'matrix') {
+        addBreak(1);
+        const cmatrixError = runCmatrix();
+        if (cmatrixError) {
+          appendTextBlock(cmatrixError);
+          showPrompt();
+        }
+        return;
+      }
+
+      const handler = commands[commandName];
       if (!handler) {
         addBreak(1);
-        appendTextBlock('Command not found: ' + command);
+        appendTextBlock('Command not found: ' + commandName);
         showPrompt();
         return;
       }
@@ -530,8 +636,14 @@ Type help for commands.
         return;
       }
 
+      if (result.type === 'ascii') {
+        appendAsciiBlock(result.value);
+        showPrompt();
+        return;
+      }
+
       if (result.type === 'html') {
-        appendBlock(result.value);
+        renderOutput(result.value, { html: true });
         showPrompt();
         return;
       }
@@ -541,17 +653,20 @@ Type help for commands.
       }
     }
 
+    consoleEl.addEventListener('mousedown', function(event) {
+      if (!inputEnabled || !currentInput || !currentLine) return;
+      if (currentLine.contains(event.target)) return;
+      currentInput.focus();
+      const end = currentInput.value.length;
+      currentInput.setSelectionRange(end, end);
+    });
+
     document.addEventListener('keydown', function(event) {
       if (!inputEnabled || !currentInput) return;
-      if (document.activeElement !== currentInput) currentInput.focus();
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && document.activeElement === currentInput) {
         event.preventDefault();
         runCommand(currentInput.value);
       }
-    });
-
-    document.addEventListener('click', function() {
-      if (currentInput) currentInput.focus();
     });
 
     piLink.addEventListener('click', function(event) {

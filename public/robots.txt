@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://joeydepew.com/sitemap.xml
-Sitemap: https://joeydepew.me/sitemap.xml

@@ -94,8 +94,9 @@ export default function EducationPage() {
               }}
             />
             <EducationEntry
-              logo="/images/education/la-county-seal.svg"
-              logoAlt="Los Angeles County seal"
+              logo="/images/education/la-county-seal.png"
+              logoAlt="Los Angeles County Registrar-Recorder / County Clerk seal"
+              logoTight
               title="Certified Legal Document Assistant"
               subtitle="County of Los Angeles · May 2026"
               detail="Certification for legal document preparation work in California — aligned with QDRO/DRO and practical legal-tech document workflows."

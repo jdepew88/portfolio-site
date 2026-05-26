@@ -7,7 +7,7 @@ const person: Person = {
   name: `Joseph Depew`,
   role: "Builder · IT generalist · Legal-tech · Homelab",
   avatar: "/images/joseph-depew.png",
-  email: "hello@joeydepew.me",
+  email: "hello@joeydepew.com",
   location: "America/Los_Angeles", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
@@ -89,7 +89,7 @@ const about: About = {
     link: "",
   },
   intro: {
-    display: true,
+    display: false,
     title: "Introduction",
     description: (
       <>
@@ -161,8 +161,21 @@ const about: About = {
         name: "California State University, Los Angeles",
         description: (
           <>
-            B.A., History (General Option). Details on the{" "}
-            <a href="/education">Education and Certifications</a> page.
+            B.A., History (General Option).
+            <br />
+            <br />
+            <strong>CCNA</strong> — Cisco Certified Network Associate (earned June 2023, renewing
+            June 2026). Routing, switching, and practical networking fundamentals.{" "}
+            <a
+              href="https://github.com/jdepew88/CCNA-Notes---jdepew88"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CCNA Notes (GitHub)
+            </a>
+            <br />
+            <br />
+            More on the <a href="/education">Education and Certifications</a> page.
           </>
         ),
       },

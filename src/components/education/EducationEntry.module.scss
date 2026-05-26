@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -29,6 +29,27 @@
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.logoRing[data-logo-fit="cover"] {
+  padding: 0;
+}
+
+.logoImg[data-fit="cover"] {
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.logoRing[data-logo-tight="true"] {
+  padding: 0;
+}
+
+.logoRing[data-logo-tight="true"] .logoImg {
+  width: 120%;
+  height: 120%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
 }
 
 .body {

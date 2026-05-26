@@ -1,5 +1,30 @@
 @use "../breakpoints.scss" as breakpoints;
 
+.hero {
+    width: 100%;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    line-height: 0;
+    isolation: isolate;
+
+    img,
+    picture,
+    video {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: min(22rem, 42vw);
+        object-fit: cover;
+        object-position: 68% center;
+        border-radius: var(--radius-l);
+    }
+}
+
+.socialRow {
+    justify-content: center;
+    padding-top: var(--static-space-16);
+}
+
 .hover {
     transition: var(--transition-micro-medium);
 

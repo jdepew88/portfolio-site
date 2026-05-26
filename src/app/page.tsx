@@ -15,6 +15,15 @@ import {
 import { home, about, person, baseURL } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
+function QdrodlBrand() {
+  return (
+    <>
+      <span style={{ color: "#ffffff" }}>QDRO</span>
+      <span style={{ color: "#0f2847" }}>dl</span>
+    </>
+  );
+}
+
 export async function generateMetadata() {
   return Meta.generate({
     title: home.title,
@@ -60,7 +69,7 @@ export default function Home() {
 
           <RevealFx translateY={4} fillWidth horizontal="center" paddingBottom="8">
             <Heading wrap="balance" variant="display-strong-l">
-              Joseph Depew
+              Joseph R. Depew
             </Heading>
           </RevealFx>
 
@@ -109,30 +118,43 @@ export default function Home() {
       </Column>
 
       <RevealFx translateY={10} delay={0.45} fillWidth>
-        <Column
-          fillWidth
-          border="neutral-alpha-weak"
-          background="neutral-alpha-weak"
-          radius="l"
-          padding="l"
-          gap="12"
-          style={{ backdropFilter: "blur(var(--static-space-1))" }}
-        >
-          <Row gap="8" vertical="center">
-            <Icon name="terminal" onBackground="brand-weak" />
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              terminal
+        <SmartLink href="/bio" fillWidth>
+          <Column
+            fillWidth
+            border="neutral-alpha-weak"
+            background="neutral-alpha-weak"
+            radius="l"
+            padding="l"
+            gap="12"
+            style={{
+              backdropFilter: "blur(var(--static-space-1))",
+              cursor: "pointer",
+              transition: "border-color 0.2s ease, background 0.2s ease",
+            }}
+          >
+            <Row gap="8" vertical="center" horizontal="between" fillWidth>
+              <Row gap="8" vertical="center">
+                <Icon name="terminal" onBackground="brand-weak" />
+                <Text variant="label-default-s" onBackground="neutral-weak">
+                  terminal
+                </Text>
+              </Row>
+              <Text variant="label-default-s" onBackground="brand-weak">
+                Open bio →
+              </Text>
+            </Row>
+            <Text variant="code-default-s">
+              $ whoami
+              {"\n"}Joseph Depew
+              {"\n\n"}$ focus
+              {"\n"}web apps · Chrome extensions · homelab · legal-tech · automation
+              {"\n\n"}$ currently_building
+              {"\n"}
+              <QdrodlBrand />
+              {" · Homelab in a Box · TubeStack · TabStack"}
             </Text>
-          </Row>
-          <Text variant="code-default-s">
-            $ whoami
-            {"\n"}Joseph Depew
-            {"\n\n"}$ focus
-            {"\n"}web apps · Chrome extensions · homelab · legal-tech · automation
-            {"\n\n"}$ currently_building
-            {"\n"}QDROdl · Homelab in a Box · TubeStack · TabStack
-          </Text>
-        </Column>
+          </Column>
+        </SmartLink>
       </RevealFx>
 
       <RevealFx translateY={12} delay={0.55} fillWidth>
@@ -194,7 +216,9 @@ export default function Home() {
                 vertical="center"
               >
                 <Icon name="arrowUpRightFromSquare" onBackground="brand-weak" />
-                <Text variant="body-default-s">QDROdl</Text>
+                <Text variant="body-default-s" as="span">
+                  <QdrodlBrand />
+                </Text>
               </Row>
             </SmartLink>
           </Row>

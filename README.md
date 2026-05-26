@@ -1,4 +1,4 @@
-# joeydepew.me
+# joeydepew.com
 
 Personal portfolio for **Joseph Depew**.
 

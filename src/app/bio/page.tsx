@@ -28,7 +28,7 @@ export default function BioPage() {
         }}
       />
 
-      <TerminalWindow src="/bio/whois-terminal.html?v=5" />
+      <TerminalWindow src="/bio/whois-terminal.html?v=24" />
     </Column>
   );
 }

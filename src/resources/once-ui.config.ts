@@ -14,7 +14,7 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Domain used for SEO meta tags and schema
-const baseURL: string = "https://joeydepew.me";
+const baseURL: string = "https://joeydepew.com";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -193,7 +193,7 @@ const schema: SchemaConfig = {
   type: "Person",
   name: "Joseph Depew",
   description: home.description,
-  email: "hello@joeydepew.me",
+  email: "hello@joeydepew.com",
 };
 
 // social links

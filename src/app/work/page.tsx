@@ -1,6 +1,8 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import Image from "next/image";
+import { Column, Meta, Row, Schema } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
+import styles from "./work.module.scss";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,10 +30,20 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
-      <Projects />
+      <Column fillWidth marginBottom="l" paddingX="l">
+        <Row fillWidth className={styles.header} border="neutral-alpha-weak">
+          <Image
+            src="/images/projects/joseph/projects-header.png"
+            alt="Projects — Joseph Depew"
+            width={1024}
+            height={341}
+            priority
+            unoptimized
+            sizes="(max-width: 768px) 100vw, 720px"
+          />
+        </Row>
+      </Column>
+      <Projects compactImages />
     </Column>
   );
 }

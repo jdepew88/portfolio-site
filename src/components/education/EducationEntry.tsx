@@ -8,6 +8,10 @@ export type EducationEntryProps = {
   tags?: string[];
   logo?: string;
   logoAlt?: string;
+  /** Use cover for photo seals so the ring crops to a clean circle */
+  logoFit?: "contain" | "cover";
+  /** Less ring padding; scale art up to trim empty transparent margins in the file */
+  logoTight?: boolean;
   link?: { href: string; label: string };
 };
 
@@ -18,6 +22,8 @@ export function EducationEntry({
   tags,
   logo,
   logoAlt,
+  logoFit = "contain",
+  logoTight = false,
   link,
 }: EducationEntryProps) {
   return (
@@ -32,9 +38,18 @@ export function EducationEntry({
     >
       <div className={styles.header}>
         {logo && (
-          <div className={styles.logoRing}>
+          <div
+            className={styles.logoRing}
+            data-logo-fit={logoFit}
+            data-logo-tight={logoTight ? "true" : undefined}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className={styles.logoImg} src={logo} alt={logoAlt ?? title} />
+            <img
+              className={styles.logoImg}
+              src={logo}
+              alt={logoAlt ?? title}
+              data-fit={logoFit}
+            />
           </div>
         )}
         <Column className={styles.body} gap="8">

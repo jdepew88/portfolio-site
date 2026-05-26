@@ -12,6 +12,7 @@ import {
 
 interface ProjectCardProps {
   href: string;
+  caseStudyHref?: string;
   priority?: boolean;
   images: string[];
   title: string;
@@ -19,25 +20,36 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  /** When true, image carousel renders at 67% width (33% smaller). */
+  compactImages?: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
+  caseStudyHref,
   images = [],
   title,
   content,
   description,
   avatars,
   link,
+  compactImages = false,
 }) => {
   const previewLink = link || href;
+  const isGitHubLink = Boolean(link?.includes("github.com"));
+  const imageWidth = compactImages ? "67%" : "100%";
 
   return (
     <Column fillWidth gap="m">
       {images.length > 0 && (
         <SmartLink
           href={previewLink}
-          style={{ display: "block", width: "100%" }}
+          style={{
+            display: "block",
+            width: imageWidth,
+            maxWidth: "100%",
+            margin: compactImages ? "0 auto" : undefined,
+          }}
           aria-label={`${title} — open project`}
         >
           <Carousel
@@ -73,22 +85,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </Text>
             )}
             <Flex gap="24" wrap>
-              {content?.trim() && (
+              {caseStudyHref && content?.trim() && (
                 <SmartLink
                   suffixIcon="arrowRight"
                   style={{ margin: "0", width: "fit-content" }}
-                  href={href}
+                  href={caseStudyHref}
                 >
                   <Text variant="body-default-s">Read case study</Text>
                 </SmartLink>
               )}
               {link && (
                 <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
+                  suffixIcon={isGitHubLink ? "github" : "arrowUpRightFromSquare"}
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-s">
+                    {isGitHubLink ? "View on GitHub" : "View project"}
+                  </Text>
                 </SmartLink>
               )}
             </Flex>

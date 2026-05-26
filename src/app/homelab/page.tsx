@@ -60,9 +60,11 @@ export default function HomelabPage() {
           enlarge
           radius="l"
           border="neutral-alpha-weak"
-          alt="Homelab diagram"
-          src="/images/projects/joseph/my-homelab.jpg"
-          aspectRatio="16 / 9"
+          alt="Homelab network diagram — VLANs, pfSense, Proxmox, Unraid, and services"
+          src="/images/homelab/homelab-diagram-full.png"
+          aspectRatio="original"
+          objectFit="contain"
+          unoptimized
           sizes="(max-width: 960px) 100vw, 960px"
         />
 
@@ -89,4 +91,3 @@ export default function HomelabPage() {
     </Column>
   );
 }
-
