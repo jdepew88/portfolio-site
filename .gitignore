@@ -52,3 +52,18 @@ next-env.d.ts
 # local scratch (not part of the site)
 /assets/
 /js/
+
+# Local environment files - never commit real secrets
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+
+# Optional placeholder example files may be committed if created later
+!.env.example
+
+# Local environment files - never commit real secrets
+.env
+.env.*
+.dev.vars
+.dev.vars.*
