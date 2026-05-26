@@ -1,0 +1,13 @@
+.diagramWrap {
+    width: 100%;
+    max-width: 34rem;
+    margin-inline: auto;
+    line-height: 0;
+
+    img,
+    picture,
+    video {
+        border-radius: 0;
+        object-fit: contain;
+    }
+}

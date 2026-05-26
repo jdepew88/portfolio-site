@@ -1,5 +1,8 @@
 import { Column, Heading, Line, Media, Meta, Row, Schema, SmartLink, Tag, Text } from "@once-ui-system/core";
 import { baseURL, person } from "@/resources";
+import styles from "./homelab.module.scss";
+
+const HOMELAB_DIAGRAM = "/images/homelab/homelab-diagram-full.png";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -48,7 +51,7 @@ export default function HomelabPage() {
         <Tag size="l">Backups</Tag>
       </Row>
 
-      <Column fillWidth gap="16" paddingX="l">
+      <Column fillWidth gap="12" paddingX="l">
         <Row fillWidth>
           <Line />
         </Row>
@@ -56,17 +59,18 @@ export default function HomelabPage() {
           Diagram
         </Heading>
 
-        <Media
-          enlarge
-          radius="l"
-          border="neutral-alpha-weak"
-          alt="Homelab network diagram — VLANs, pfSense, Proxmox, Unraid, and services"
-          src="/images/homelab/homelab-diagram-full.png"
-          aspectRatio="original"
-          objectFit="contain"
-          unoptimized
-          sizes="(max-width: 960px) 100vw, 960px"
-        />
+        <div className={styles.diagramWrap}>
+          <Media
+            enlarge
+            border="neutral-alpha-weak"
+            alt="Homelab network diagram — VLANs, pfSense, Proxmox, Unraid, and services"
+            src={HOMELAB_DIAGRAM}
+            aspectRatio="original"
+            objectFit="contain"
+            unoptimized
+            sizes="(max-width: 768px) 90vw, 544px"
+          />
+        </div>
 
         <Text variant="body-default-m" onBackground="neutral-weak">
           This is a living document. I’m gradually turning the lab into a set of “known-good” deployable patterns.
