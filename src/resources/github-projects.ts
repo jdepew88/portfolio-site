@@ -11,6 +11,15 @@ export type ExternalProject = {
 
 export const externalProjects: ExternalProject[] = [
   {
+    slug: "jr-technical-consulting",
+    title: "JR Technical Consulting",
+    publishedAt: "2026-05-25",
+    summary:
+      "Practical IT and infrastructure consulting for small businesses — networking, endpoints, backups, and reliable day-to-day systems support.",
+    images: ["/images/projects/joseph/jr-technical-consulting.png"],
+    link: "https://jrtechnicalconsulting.com/",
+  },
+  {
     slug: "tabstack",
     title: "TabStack",
     publishedAt: "2026-05-21",

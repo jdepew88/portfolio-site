@@ -116,6 +116,12 @@ const about: About = {
             Grounded in real-world QDRO workflow experience — reducing rework, standardizing
             templates, and making document prep more consistent.
           </>,
+          <>
+            <strong>JR Technical Consulting</strong> (
+            <a href="https://jrtechnicalconsulting.com/">jrtechnicalconsulting.com</a>) — IT
+            generalist work alongside QDROdl: networking, endpoints, backups, and small-business
+            systems that stay understandable and recoverable.
+          </>,
         ],
         images: [],
       },
