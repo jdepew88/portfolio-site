@@ -109,18 +109,14 @@ const about: About = {
         role: "QDRO automation, structured intake, standardized outputs",
         achievements: [
           <>
-            Building <strong>QDROdl</strong>: a legal-tech web app for generating QDRO/DRO document
-            packages with structured intake and repeatable workflows.
+            Building <strong>QDROdl</strong> (
+            <a href="https://qdrodl.app/">qdrodl.app</a>
+            ): a legal-tech web app for generating QDRO/DRO document packages with structured
+            intake and repeatable workflows.
           </>,
           <>
             Grounded in real-world QDRO workflow experience — reducing rework, standardizing
             templates, and making document prep more consistent.
-          </>,
-          <>
-            <strong>JR Technical Consulting</strong> (
-            <a href="https://jrtechnicalconsulting.com/">jrtechnicalconsulting.com</a>) — IT
-            generalist work alongside QDROdl: networking, endpoints, backups, and small-business
-            systems that stay understandable and recoverable.
           </>,
         ],
         images: [],
@@ -130,6 +126,11 @@ const about: About = {
         timeframe: "Ongoing",
         role: "Hands-on troubleshooting, networks, small business workflows",
         achievements: [
+          <>
+            <strong>JR Technical Consulting</strong> —{" "}
+            <a href="https://jrtechnicalconsulting.com/">jrtechnicalconsulting.com</a> for practical
+            IT support, networking, endpoints, backups, and small-business systems.
+          </>,
           <>
             Building and maintaining small, understandable systems: websites, backups, endpoints,
             Wi‑Fi/networking, and “make it work reliably” business automation.
