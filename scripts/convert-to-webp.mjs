@@ -1,3 +1,7 @@
+/**
+ * Local-only asset tool. WebP files are committed; CI does not need sharp.
+ * Run: npm install --no-save sharp && node scripts/convert-to-webp.mjs
+ */
 import sharp from "sharp";
 import { existsSync } from "node:fs";
 import { copyFile, unlink } from "node:fs/promises";
