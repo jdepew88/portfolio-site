@@ -1,11 +1,11 @@
 /* Light mode: pale forest-green splash with stronger foreground contrast */
 
 [data-theme="light"] {
-  /* Surfaces — lighter green-tinted whites */
-  --scheme-gray-1200: #fcfefd;
-  --scheme-gray-1100: #f7faf8;
-  --scheme-gray-1000: #eef4f0;
-  --scheme-gray-900: #e2ebe5;
+  /* Surfaces — very light green-tinted whites */
+  --scheme-gray-1200: #fefffe;
+  --scheme-gray-1100: #fafcfb;
+  --scheme-gray-1000: #f4f8f5;
+  --scheme-gray-900: #ecf2ee;
 
   /* Text & icons — darker for readability on pale green */
   --scheme-gray-100: #121a16;
@@ -23,9 +23,9 @@
   --scheme-moss-800: #1f4532;
   --scheme-moss-900: #183828;
   --scheme-moss-1000: #122c21;
-  --scheme-moss-600-15: #2f634914;
-  --scheme-moss-600-30: #2f634926;
-  --scheme-moss-600-50: #2f634940;
+  --scheme-moss-600-15: #2f63490e;
+  --scheme-moss-600-30: #2f63491a;
+  --scheme-moss-600-50: #2f63492e;
 
   --scheme-green-500: #3d7a58;
   --scheme-green-600: #2f6349;
@@ -37,9 +37,9 @@
 [data-theme="light"] body {
   background: linear-gradient(
     165deg,
-    #f6fbf8 0%,
-    #ffffff 38%,
-    #f2f8f5 72%,
+    #f9fcfa 0%,
+    #ffffff 40%,
+    #f7fbf9 74%,
     #ffffff 100%
   ) !important;
 }
