@@ -15,7 +15,7 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
-const ABOUT_HERO = "/images/about/about-hero.png";
+const ABOUT_HERO = "/images/about/about-hero.webp";
 
 export async function generateMetadata() {
   return Meta.generate({

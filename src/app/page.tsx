@@ -54,13 +54,18 @@ export default function Home() {
         <Column maxWidth="s" horizontal="center" align="center" gap="m">
           <RevealFx translateY={2} fillWidth horizontal="center" paddingBottom="8">
             <Image
-              src="/images/logo-jr.png"
-              alt="Joseph Depew"
-              width={132}
-              height={132}
+              src="/images/logo-jr.webp"
+              alt="JR Technical Consulting"
+              width={160}
+              height={160}
+              sizes="160px"
               priority
+              unoptimized
               style={{
                 display: "block",
+                width: "8rem",
+                height: "auto",
+                maxWidth: "100%",
                 borderRadius: "12px",
                 boxShadow: "0 12px 32px rgba(15, 40, 80, 0.18)",
               }}

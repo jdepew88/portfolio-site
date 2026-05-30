@@ -1,58 +1,33 @@
-/* Light mode: light-blue accents on white (dark mode keeps moss/green from once-ui.config) */
+/* Light mode: forest-green splash and accents (dark mode keeps moss/green from once-ui.config) */
 
 [data-theme="light"] {
-  /* Cooler white page base */
-  --scheme-gray-1000: #eef4fb;
-  --scheme-gray-1100: #f5f9fd;
-  --scheme-gray-1200: #fbfdff;
+  /* Soft green-tinted page base */
+  --scheme-gray-1000: #e4ebe6;
+  --scheme-gray-1100: #f0f5f1;
+  --scheme-gray-1200: #f8fbf9;
 
-  /* Remap brand (moss) → light blue via cyan scale */
-  --scheme-moss-100: var(--scheme-cyan-100);
-  --scheme-moss-200: var(--scheme-cyan-200);
-  --scheme-moss-300: var(--scheme-cyan-300);
-  --scheme-moss-400: var(--scheme-cyan-400);
-  --scheme-moss-500: var(--scheme-cyan-500);
-  --scheme-moss-600: var(--scheme-cyan-600);
-  --scheme-moss-700: var(--scheme-cyan-700);
-  --scheme-moss-800: var(--scheme-cyan-800);
-  --scheme-moss-900: var(--scheme-cyan-900);
-  --scheme-moss-1000: var(--scheme-cyan-1000);
-  --scheme-moss-1100: var(--scheme-cyan-1100);
-  --scheme-moss-1200: var(--scheme-cyan-1200);
-  --scheme-moss-600-15: var(--scheme-cyan-600-15);
-  --scheme-moss-600-30: var(--scheme-cyan-600-30);
-  --scheme-moss-600-50: var(--scheme-cyan-600-50);
+  /* Slightly deeper moss for light UI contrast */
+  --scheme-moss-600: #3d6b52;
+  --scheme-moss-700: #325a45;
+  --scheme-moss-800: #284939;
+  --scheme-moss-900: #1f3a2e;
+  --scheme-moss-1000: #172d24;
+  --scheme-moss-600-15: #2d5a4020;
+  --scheme-moss-600-30: #2d5a4035;
+  --scheme-moss-600-50: #2d5a4050;
 
-  /* Remap accent (green) → light blue */
-  --scheme-green-100: var(--scheme-cyan-100);
-  --scheme-green-200: var(--scheme-cyan-200);
-  --scheme-green-300: var(--scheme-cyan-300);
-  --scheme-green-400: var(--scheme-cyan-400);
-  --scheme-green-500: var(--scheme-cyan-500);
-  --scheme-green-600: var(--scheme-cyan-600);
-  --scheme-green-700: var(--scheme-cyan-700);
-  --scheme-green-800: var(--scheme-cyan-800);
-  --scheme-green-900: var(--scheme-cyan-900);
-  --scheme-green-1000: var(--scheme-cyan-1000);
-  --scheme-green-1100: var(--scheme-cyan-1100);
-  --scheme-green-1200: var(--scheme-cyan-1200);
-  --scheme-green-600-15: var(--scheme-cyan-600-15);
-  --scheme-green-600-30: var(--scheme-cyan-600-30);
-  --scheme-green-600-50: var(--scheme-cyan-600-50);
+  --scheme-green-600: #3a7358;
+  --scheme-green-700: #2f6049;
+  --scheme-green-600-15: #2f604920;
+  --scheme-green-600-30: #2f604935;
 }
 
 [data-theme="light"] body {
   background: linear-gradient(
     165deg,
-    #e8f4ff 0%,
-    #ffffff 38%,
-    #f6faff 72%,
+    #d8e8de 0%,
+    #ffffff 36%,
+    #e6f0ea 68%,
     #ffffff 100%
   ) !important;
-}
-
-/* Softer blue dot grid in light mode (Background uses brand color token) */
-[data-theme="light"] {
-  --scheme-moss-600-15: #049ee218;
-  --scheme-moss-600-30: #049ee228;
 }

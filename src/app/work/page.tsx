@@ -33,13 +33,13 @@ export default function Work() {
       <Column fillWidth marginBottom="l" paddingX="l">
         <Row fillWidth className={styles.header} border="neutral-alpha-weak">
           <Image
-            src="/images/projects/joseph/projects-header.png"
+            src="/images/projects/joseph/projects-header.webp"
             alt="Projects — Joseph Depew"
             width={1024}
             height={341}
+            sizes="(max-width: 768px) 100vw, 1024px"
             priority
             unoptimized
-            sizes="(max-width: 768px) 100vw, 720px"
           />
         </Row>
       </Column>
