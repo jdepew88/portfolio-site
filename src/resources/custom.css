@@ -1,33 +1,45 @@
-/* Light mode: forest-green splash and accents (dark mode keeps moss/green from once-ui.config) */
+/* Light mode: pale forest-green splash with stronger foreground contrast */
 
 [data-theme="light"] {
-  /* Soft green-tinted page base */
-  --scheme-gray-1000: #e4ebe6;
-  --scheme-gray-1100: #f0f5f1;
-  --scheme-gray-1200: #f8fbf9;
+  /* Surfaces — lighter green-tinted whites */
+  --scheme-gray-1200: #fcfefd;
+  --scheme-gray-1100: #f7faf8;
+  --scheme-gray-1000: #eef4f0;
+  --scheme-gray-900: #e2ebe5;
 
-  /* Slightly deeper moss for light UI contrast */
-  --scheme-moss-600: #3d6b52;
-  --scheme-moss-700: #325a45;
-  --scheme-moss-800: #284939;
-  --scheme-moss-900: #1f3a2e;
-  --scheme-moss-1000: #172d24;
-  --scheme-moss-600-15: #2d5a4020;
-  --scheme-moss-600-30: #2d5a4035;
-  --scheme-moss-600-50: #2d5a4050;
+  /* Text & icons — darker for readability on pale green */
+  --scheme-gray-100: #121a16;
+  --scheme-gray-200: #1a2620;
+  --scheme-gray-300: #24332c;
+  --scheme-gray-400: #304238;
+  --scheme-gray-500: #3d5247;
+  --scheme-gray-600: #4c6357;
+  --scheme-gray-700: #5a7265;
 
-  --scheme-green-600: #3a7358;
-  --scheme-green-700: #2f6049;
-  --scheme-green-600-15: #2f604920;
-  --scheme-green-600-30: #2f604935;
+  /* Brand — deeper forest green on buttons, links, dots */
+  --scheme-moss-500: #3d7a58;
+  --scheme-moss-600: #2f6349;
+  --scheme-moss-700: #27533c;
+  --scheme-moss-800: #1f4532;
+  --scheme-moss-900: #183828;
+  --scheme-moss-1000: #122c21;
+  --scheme-moss-600-15: #2f634914;
+  --scheme-moss-600-30: #2f634926;
+  --scheme-moss-600-50: #2f634940;
+
+  --scheme-green-500: #3d7a58;
+  --scheme-green-600: #2f6349;
+  --scheme-green-700: #27533c;
+  --scheme-green-600-15: #2f634914;
+  --scheme-green-600-30: #2f634926;
 }
 
 [data-theme="light"] body {
   background: linear-gradient(
     165deg,
-    #d8e8de 0%,
-    #ffffff 36%,
-    #e6f0ea 68%,
+    #f6fbf8 0%,
+    #ffffff 38%,
+    #f2f8f5 72%,
     #ffffff 100%
   ) !important;
 }
