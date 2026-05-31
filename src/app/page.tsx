@@ -18,8 +18,8 @@ import { Projects } from "@/components/work/Projects";
 function QdrodlBrand() {
   return (
     <>
-      <span style={{ color: "#ffffff" }}>QDRO</span>
-      <span style={{ color: "#0f2847" }}>dl</span>
+      <span style={{ color: "var(--qdrodl-fg-strong)" }}>QDRO</span>
+      <span style={{ color: "var(--qdrodl-fg-accent)" }}>dl</span>
     </>
   );
 }
@@ -67,7 +67,7 @@ export default function Home() {
                 height: "auto",
                 maxWidth: "100%",
                 borderRadius: "12px",
-                boxShadow: "0 12px 32px rgba(15, 40, 80, 0.18)",
+                boxShadow: "0 12px 32px rgba(31, 77, 58, 0.14)",
               }}
             />
           </RevealFx>
