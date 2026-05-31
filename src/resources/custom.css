@@ -1,4 +1,4 @@
-﻿/* Light mode: warm neutral page, muted sage accents (dark mode unchanged) */
+﻿/* Light mode: warm neutral page, muted sage accents. Dark: Once UI moss/green + brand dot grid. */
 
 [data-theme="light"] {
   /* Neutral scale — charcoal text, warm gray surfaces */
@@ -31,9 +31,10 @@
   --scheme-moss-1000: #f0f2f1;
   --scheme-moss-1100: #f5f6f5;
   --scheme-moss-1200: #f8f8f7;
-  --scheme-moss-600-15: #62706b12;
-  --scheme-moss-600-30: #62706b1f;
-  --scheme-moss-600-50: #62706b30;
+  /* Softer dot grid (global config uses brand tokens at 28%) */
+  --scheme-moss-600-15: #62706b0a;
+  --scheme-moss-600-30: #62706b12;
+  --scheme-moss-600-50: #62706b1a;
 
   /* Accent (green) — match muted brand */
   --scheme-green-100: #1a1f1e;
@@ -48,9 +49,9 @@
   --scheme-green-1000: #f0f2f1;
   --scheme-green-1100: #f5f6f5;
   --scheme-green-1200: #f8f8f7;
-  --scheme-green-600-15: #62706b12;
-  --scheme-green-600-30: #62706b1f;
-  --scheme-green-600-50: #62706b30;
+  --scheme-green-600-15: #62706b0a;
+  --scheme-green-600-30: #62706b12;
+  --scheme-green-600-50: #62706b1a;
 
   /* Semantic surfaces — ivory/gray, minimal green cast */
   --page-background: #fafaf9;
@@ -64,8 +65,9 @@
 }
 
 [data-theme="dark"] {
+  /* Terminal wordmark — white + navy “dl” on green-splash dark theme */
   --qdrodl-fg-strong: #ffffff;
-  --qdrodl-fg-accent: #bfd8cd;
+  --qdrodl-fg-accent: #0f2847;
 }
 
 [data-theme="light"] body {
