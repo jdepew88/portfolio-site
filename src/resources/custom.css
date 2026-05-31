@@ -1,62 +1,79 @@
-/* Light mode — polished forest-green palette (dark mode uses once-ui.config defaults) */
+﻿/* Light mode: warm ivory page, forest-green accents, charcoal text (dark mode unchanged) */
 
 [data-theme="light"] {
-  /* Surfaces */
-  --scheme-gray-1200: #ffffff;
-  --scheme-gray-1100: #fafaf7;
-  --scheme-gray-1000: #f3f6f3;
-  --scheme-gray-900: #d7ded9;
-
-  /* Text — charcoal/slate, not green */
+  /* Neutral scale — charcoal text, warm surfaces, soft borders */
   --scheme-gray-100: #111827;
-  --scheme-gray-200: #374151;
+  --scheme-gray-200: #1f2937;
   --scheme-gray-300: #334155;
-  --scheme-gray-400: #4b5563;
+  --scheme-gray-400: #374151;
   --scheme-gray-500: #6b7280;
-  --scheme-gray-600: #6b7280;
-  --scheme-gray-700: #9ca3af;
+  --scheme-gray-600: #9ca3af;
+  --scheme-gray-700: #b8c3bc;
+  --scheme-gray-800: #d7ded9;
+  --scheme-gray-900: #e8eeea;
+  --scheme-gray-1000: #ffffff;
+  --scheme-gray-1100: #f7f7f4;
+  --scheme-gray-1200: #fafaf7;
+  --scheme-gray-600-15: #6b728026;
+  --scheme-gray-600-30: #6b72804d;
+  --scheme-gray-600-50: #6b728080;
 
-  /* Borders & alphas — slightly clearer cards without heavy chrome */
-  --scheme-gray-600-15: #d7ded940;
-  --scheme-gray-600-30: #d7ded966;
-  --scheme-gray-600-50: #d7ded98c;
-
-  /* Brand — deep forest green for buttons, links, accents */
-  --scheme-moss-400: #2a5c47;
-  --scheme-moss-500: #225241;
+  /* Brand (moss) — deep slate/forest green, not saturated */
+  --scheme-moss-100: #07100c;
+  --scheme-moss-200: #0f1a15;
+  --scheme-moss-300: #183c2e;
+  --scheme-moss-400: #1a4535;
+  --scheme-moss-500: #1f4d3a;
   --scheme-moss-600: #1f4d3a;
-  --scheme-moss-700: #183c2e;
-  --scheme-moss-800: #142f25;
-  --scheme-moss-900: #bfd8cd;
-  --scheme-moss-1000: #d4e6dc;
-  --scheme-moss-1100: #eaf3ef;
+  --scheme-moss-700: #2d6650;
+  --scheme-moss-800: #bfd8cd;
+  --scheme-moss-900: #d4e8de;
+  --scheme-moss-1000: #eaf3ef;
+  --scheme-moss-1100: #f0f7f4;
   --scheme-moss-1200: #f3f6f3;
-  --scheme-moss-600-15: #1f4d3a0c;
-  --scheme-moss-600-30: #1f4d3a18;
-  --scheme-moss-600-50: #1f4d3a28;
+  --scheme-moss-600-15: #1f4d3a26;
+  --scheme-moss-600-30: #1f4d3a4d;
+  --scheme-moss-600-50: #1f4d3a80;
 
-  /* Accent (green) — aligned with brand */
+  /* Accent (green) — aligned with brand for buttons and labels */
+  --scheme-green-100: #07100c;
+  --scheme-green-200: #0f1a15;
+  --scheme-green-300: #183c2e;
+  --scheme-green-400: #1a4535;
+  --scheme-green-500: #1f4d3a;
   --scheme-green-600: #1f4d3a;
-  --scheme-green-700: #183c2e;
-  --scheme-green-600-15: #1f4d3a0c;
-  --scheme-green-600-30: #1f4d3a18;
+  --scheme-green-700: #2d6650;
+  --scheme-green-800: #bfd8cd;
+  --scheme-green-900: #d4e8de;
+  --scheme-green-1000: #eaf3ef;
+  --scheme-green-1100: #f0f7f4;
+  --scheme-green-1200: #f3f6f3;
+  --scheme-green-600-15: #1f4d3a26;
+  --scheme-green-600-30: #1f4d3a4d;
+  --scheme-green-600-50: #1f4d3a80;
 
-  /* QDROdl inline brand (terminal + chip) */
+  /* Semantic surfaces — pale warm page, white cards */
+  --page-background: #fafaf7;
+  --neutral-background-weak: #fafaf7;
+  --neutral-background-medium: #ffffff;
+  --neutral-background-strong: #f3f6f3;
+
+  /* Qdrodl inline brand (terminal + chip) */
   --qdrodl-fg-strong: #1f4d3a;
   --qdrodl-fg-accent: #334155;
 }
 
 [data-theme="dark"] {
   --qdrodl-fg-strong: #ffffff;
-  --qdrodl-fg-accent: #0f2847;
+  --qdrodl-fg-accent: #bfd8cd;
 }
 
 [data-theme="light"] body {
   background: linear-gradient(
     165deg,
-    #f3f6f3 0%,
-    #fafaf7 38%,
-    #fafaf7 72%,
-    #ffffff 100%
+    #fafaf7 0%,
+    #ffffff 38%,
+    #f3f6f3 72%,
+    #fafaf7 100%
   ) !important;
 }
