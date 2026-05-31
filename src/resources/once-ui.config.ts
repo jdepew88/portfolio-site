@@ -122,9 +122,9 @@ const effects: EffectsConfig = {
   },
   dots: {
     display: true,
-    opacity: 28,
+    opacity: 14,
     size: "2",
-    color: "brand-background-strong",
+    color: "neutral-background-strong",
   },
   grid: {
     display: false,

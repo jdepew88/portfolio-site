@@ -1,66 +1,66 @@
-﻿/* Light mode: warm ivory page, forest-green accents, charcoal text (dark mode unchanged) */
+﻿/* Light mode: warm neutral page, muted sage accents (dark mode unchanged) */
 
 [data-theme="light"] {
-  /* Neutral scale — charcoal text, warm surfaces, soft borders */
+  /* Neutral scale — charcoal text, warm gray surfaces */
   --scheme-gray-100: #111827;
   --scheme-gray-200: #1f2937;
   --scheme-gray-300: #334155;
   --scheme-gray-400: #374151;
   --scheme-gray-500: #6b7280;
   --scheme-gray-600: #9ca3af;
-  --scheme-gray-700: #b8c3bc;
-  --scheme-gray-800: #d7ded9;
-  --scheme-gray-900: #e8eeea;
+  --scheme-gray-700: #c5c9c7;
+  --scheme-gray-800: #dcdedd;
+  --scheme-gray-900: #ebebea;
   --scheme-gray-1000: #ffffff;
-  --scheme-gray-1100: #f7f7f4;
-  --scheme-gray-1200: #fafaf7;
-  --scheme-gray-600-15: #6b728026;
-  --scheme-gray-600-30: #6b72804d;
-  --scheme-gray-600-50: #6b728080;
+  --scheme-gray-1100: #f8f8f6;
+  --scheme-gray-1200: #fafaf9;
+  --scheme-gray-600-15: #6b72801a;
+  --scheme-gray-600-30: #6b728033;
+  --scheme-gray-600-50: #6b728055;
 
-  /* Brand (moss) — deep slate/forest green, not saturated */
-  --scheme-moss-100: #07100c;
-  --scheme-moss-200: #0f1a15;
-  --scheme-moss-300: #183c2e;
-  --scheme-moss-400: #1a4535;
-  --scheme-moss-500: #1f4d3a;
-  --scheme-moss-600: #1f4d3a;
-  --scheme-moss-700: #2d6650;
-  --scheme-moss-800: #bfd8cd;
-  --scheme-moss-900: #d4e8de;
-  --scheme-moss-1000: #eaf3ef;
-  --scheme-moss-1100: #f0f7f4;
-  --scheme-moss-1200: #f3f6f3;
-  --scheme-moss-600-15: #1f4d3a26;
-  --scheme-moss-600-30: #1f4d3a4d;
-  --scheme-moss-600-50: #1f4d3a80;
+  /* Brand (moss) — desaturated blue-gray sage, not vivid forest */
+  --scheme-moss-100: #1a1f1e;
+  --scheme-moss-200: #2a3230;
+  --scheme-moss-300: #3f4a47;
+  --scheme-moss-400: #4f5e59;
+  --scheme-moss-500: #5a6863;
+  --scheme-moss-600: #62706b;
+  --scheme-moss-700: #4f5e59;
+  --scheme-moss-800: #d5dad8;
+  --scheme-moss-900: #e6e9e7;
+  --scheme-moss-1000: #f0f2f1;
+  --scheme-moss-1100: #f5f6f5;
+  --scheme-moss-1200: #f8f8f7;
+  --scheme-moss-600-15: #62706b12;
+  --scheme-moss-600-30: #62706b1f;
+  --scheme-moss-600-50: #62706b30;
 
-  /* Accent (green) — aligned with brand for buttons and labels */
-  --scheme-green-100: #07100c;
-  --scheme-green-200: #0f1a15;
-  --scheme-green-300: #183c2e;
-  --scheme-green-400: #1a4535;
-  --scheme-green-500: #1f4d3a;
-  --scheme-green-600: #1f4d3a;
-  --scheme-green-700: #2d6650;
-  --scheme-green-800: #bfd8cd;
-  --scheme-green-900: #d4e8de;
-  --scheme-green-1000: #eaf3ef;
-  --scheme-green-1100: #f0f7f4;
-  --scheme-green-1200: #f3f6f3;
-  --scheme-green-600-15: #1f4d3a26;
-  --scheme-green-600-30: #1f4d3a4d;
-  --scheme-green-600-50: #1f4d3a80;
+  /* Accent (green) — match muted brand */
+  --scheme-green-100: #1a1f1e;
+  --scheme-green-200: #2a3230;
+  --scheme-green-300: #3f4a47;
+  --scheme-green-400: #4f5e59;
+  --scheme-green-500: #5a6863;
+  --scheme-green-600: #62706b;
+  --scheme-green-700: #4f5e59;
+  --scheme-green-800: #d5dad8;
+  --scheme-green-900: #e6e9e7;
+  --scheme-green-1000: #f0f2f1;
+  --scheme-green-1100: #f5f6f5;
+  --scheme-green-1200: #f8f8f7;
+  --scheme-green-600-15: #62706b12;
+  --scheme-green-600-30: #62706b1f;
+  --scheme-green-600-50: #62706b30;
 
-  /* Semantic surfaces — pale warm page, white cards */
-  --page-background: #fafaf7;
-  --neutral-background-weak: #fafaf7;
+  /* Semantic surfaces — ivory/gray, minimal green cast */
+  --page-background: #fafaf9;
+  --neutral-background-weak: #fafaf9;
   --neutral-background-medium: #ffffff;
-  --neutral-background-strong: #f3f6f3;
+  --neutral-background-strong: #f4f4f2;
 
   /* Qdrodl inline brand (terminal + chip) */
-  --qdrodl-fg-strong: #1f4d3a;
-  --qdrodl-fg-accent: #334155;
+  --qdrodl-fg-strong: #5a6863;
+  --qdrodl-fg-accent: #475569;
 }
 
 [data-theme="dark"] {
@@ -71,9 +71,9 @@
 [data-theme="light"] body {
   background: linear-gradient(
     165deg,
-    #fafaf7 0%,
-    #ffffff 38%,
-    #f3f6f3 72%,
-    #fafaf7 100%
+    #f8f8f7 0%,
+    #ffffff 42%,
+    #f6f6f5 78%,
+    #fafaf9 100%
   ) !important;
 }
