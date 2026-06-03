@@ -1,81 +1,104 @@
-﻿/* Light mode: warm neutral page, muted sage accents. Dark: Once UI moss/green + brand dot grid. */
+/* Light mode: warm ivory page, deep forest accents — no neon (dark mode unchanged) */
 
-[data-theme="light"] {
-  /* Neutral scale — charcoal text, warm gray surfaces */
+html[data-theme="light"] {
+  /* Neutral scale — charcoal body text, warm surfaces */
   --scheme-gray-100: #111827;
   --scheme-gray-200: #1f2937;
   --scheme-gray-300: #334155;
   --scheme-gray-400: #374151;
   --scheme-gray-500: #6b7280;
   --scheme-gray-600: #9ca3af;
-  --scheme-gray-700: #c5c9c7;
-  --scheme-gray-800: #dcdedd;
-  --scheme-gray-900: #ebebea;
+  --scheme-gray-700: #b8c3bc;
+  --scheme-gray-800: #d7ded9;
+  --scheme-gray-900: #e8eeea;
   --scheme-gray-1000: #ffffff;
-  --scheme-gray-1100: #f8f8f6;
-  --scheme-gray-1200: #fafaf9;
-  --scheme-gray-600-15: #6b72801a;
-  --scheme-gray-600-30: #6b728033;
-  --scheme-gray-600-50: #6b728055;
+  --scheme-gray-1100: #f7f7f4;
+  --scheme-gray-1200: #fafaf7;
+  --scheme-gray-600-15: #6b728026;
+  --scheme-gray-600-30: #6b72804d;
+  --scheme-gray-600-50: #6b728080;
 
-  /* Brand (moss) — desaturated blue-gray sage, not vivid forest */
-  --scheme-moss-100: #1a1f1e;
-  --scheme-moss-200: #2a3230;
-  --scheme-moss-300: #3f4a47;
-  --scheme-moss-400: #4f5e59;
-  --scheme-moss-500: #5a6863;
-  --scheme-moss-600: #62706b;
-  --scheme-moss-700: #4f5e59;
-  --scheme-moss-800: #d5dad8;
-  --scheme-moss-900: #e6e9e7;
-  --scheme-moss-1000: #f0f2f1;
-  --scheme-moss-1100: #f5f6f5;
-  --scheme-moss-1200: #f8f8f7;
-  /* Softer dot grid (global config uses brand tokens at 28%) */
-  --scheme-moss-600-15: #62706b0a;
-  --scheme-moss-600-30: #62706b12;
-  --scheme-moss-600-50: #62706b1a;
+  /* Replace Once UI neon moss (#4FA900) with deep forest green */
+  --scheme-moss-100: #07100c;
+  --scheme-moss-200: #0f1a15;
+  --scheme-moss-300: #183c2e;
+  --scheme-moss-400: #1a4535;
+  --scheme-moss-500: #1f4d3a;
+  --scheme-moss-600: #1f4d3a;
+  --scheme-moss-700: #2d6650;
+  --scheme-moss-800: #bfd8cd;
+  --scheme-moss-900: #d4e8de;
+  --scheme-moss-1000: #eaf3ef;
+  --scheme-moss-1100: #f0f7f4;
+  --scheme-moss-1200: #f3f6f3;
+  --scheme-moss-600-15: #1f4d3a14;
+  --scheme-moss-600-30: #1f4d3a22;
+  --scheme-moss-600-50: #1f4d3a33;
 
-  /* Accent (green) — match muted brand */
-  --scheme-green-100: #1a1f1e;
-  --scheme-green-200: #2a3230;
-  --scheme-green-300: #3f4a47;
-  --scheme-green-400: #4f5e59;
-  --scheme-green-500: #5a6863;
-  --scheme-green-600: #62706b;
-  --scheme-green-700: #4f5e59;
-  --scheme-green-800: #d5dad8;
-  --scheme-green-900: #e6e9e7;
-  --scheme-green-1000: #f0f2f1;
-  --scheme-green-1100: #f5f6f5;
-  --scheme-green-1200: #f8f8f7;
-  --scheme-green-600-15: #62706b0a;
-  --scheme-green-600-30: #62706b12;
-  --scheme-green-600-50: #62706b1a;
+  --scheme-green-100: #07100c;
+  --scheme-green-200: #0f1a15;
+  --scheme-green-300: #183c2e;
+  --scheme-green-400: #1a4535;
+  --scheme-green-500: #1f4d3a;
+  --scheme-green-600: #1f4d3a;
+  --scheme-green-700: #2d6650;
+  --scheme-green-800: #bfd8cd;
+  --scheme-green-900: #d4e8de;
+  --scheme-green-1000: #eaf3ef;
+  --scheme-green-1100: #f0f7f4;
+  --scheme-green-1200: #f3f6f3;
+  --scheme-green-600-15: #1f4d3a14;
+  --scheme-green-600-30: #1f4d3a22;
+  --scheme-green-600-50: #1f4d3a33;
 
-  /* Semantic surfaces — ivory/gray, minimal green cast */
-  --page-background: #fafaf9;
-  --neutral-background-weak: #fafaf9;
+  /* Surfaces */
+  --page-background: #fafaf7;
+  --neutral-background-weak: #fafaf7;
   --neutral-background-medium: #ffffff;
-  --neutral-background-strong: #f4f4f2;
+  --neutral-background-strong: #f3f6f3;
 
-  /* Qdrodl inline brand (terminal + chip) */
-  --qdrodl-fg-strong: #5a6863;
-  --qdrodl-fg-accent: #475569;
+  /*
+   * Semantic brand tokens — dot grid and alphas must not use neon moss from :root.
+   */
+  --brand-background-strong: #e8eeea;
+  --brand-background-medium: #ffffff;
+  --brand-background-weak: #fafaf7;
+  --brand-on-background-strong: #111827;
+  --brand-on-background-medium: #374151;
+  --brand-on-background-weak: #1f4d3a;
+  --brand-border-strong: #bfd8cd;
+  --brand-border-medium: #d7ded9;
+  --brand-border-weak: #e8eeea;
+  --brand-alpha-weak: #6b72800c;
+  --brand-alpha-medium: #6b728014;
+  --brand-alpha-strong: #6b72801f;
+
+  --accent-on-background-weak: #1f4d3a;
+  --accent-on-background-medium: #183c2e;
+  --accent-solid-strong: #1f4d3a;
+  --accent-solid-medium: #1f4d3a;
+  --accent-alpha-weak: #1f4d3a12;
+  --accent-alpha-medium: #1f4d3a1f;
+  --accent-alpha-strong: #1f4d3a2e;
+
+  --code-moss: #1f4d3a;
+  --code-green: #1f4d3a;
+
+  --qdrodl-fg-strong: #1f4d3a;
+  --qdrodl-fg-accent: #334155;
 }
 
-[data-theme="dark"] {
-  /* Terminal wordmark — white + navy “dl” on green-splash dark theme */
+html[data-theme="dark"] {
   --qdrodl-fg-strong: #ffffff;
   --qdrodl-fg-accent: #0f2847;
 }
 
-[data-theme="light"] body {
+html[data-theme="light"] body {
   background: linear-gradient(
     165deg,
-    #f8f8f7 0%,
-    #ffffff 42%,
-    #f6f6f5 78%,
-    #fafaf9 100%
+    #fafaf7 0%,
+    #ffffff 38%,
+    #f3f6f3 72%,
+    #fafaf7 100%
   ) !important;
 }
