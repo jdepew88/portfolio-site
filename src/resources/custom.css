@@ -1,82 +1,90 @@
-﻿/* Light: white page + muted sage splash. Dark: Once UI moss/green + brand dot grid (unchanged). */
+﻿/* Light: white page + dark-blue splash. Dark: unchanged (Once UI defaults + rules below). */
 
 [data-theme="light"] {
-  /* Neutral scale — charcoal text, white/gray surfaces */
+  /* —— Text on white (WCAG AA+ body copy) —— */
   --scheme-gray-100: #111827;
   --scheme-gray-200: #1f2937;
   --scheme-gray-300: #334155;
   --scheme-gray-400: #374151;
   --scheme-gray-500: #6b7280;
-  --scheme-gray-600: #9ca3af;
-  --scheme-gray-700: #d1d5d3;
-  --scheme-gray-800: #e5e7e6;
-  --scheme-gray-900: #f0f1f0;
+  --scheme-gray-600: #6b7280;
+  --scheme-gray-700: #9ca3af;
+  --scheme-gray-800: #d1d5db;
+  --scheme-gray-900: #e5e7eb;
   --scheme-gray-1000: #ffffff;
   --scheme-gray-1100: #ffffff;
   --scheme-gray-1200: #ffffff;
-  --scheme-gray-600-15: #6b728014;
-  --scheme-gray-600-30: #6b728026;
-  --scheme-gray-600-50: #6b728040;
+  --scheme-gray-600-15: #6b72801a;
+  --scheme-gray-600-30: #6b728033;
+  --scheme-gray-600-50: #6b72804d;
 
-  /* Brand (moss) — muted sage for UI chrome; pale steps for splash only */
-  --scheme-moss-100: #1a1f1e;
-  --scheme-moss-200: #2a3230;
-  --scheme-moss-300: #3f4a47;
-  --scheme-moss-400: #4f5e59;
-  --scheme-moss-500: #5a6863;
-  --scheme-moss-600: #62706b;
-  --scheme-moss-700: #4f5e59;
-  --scheme-moss-800: #e4e9e6;
-  --scheme-moss-900: #eef2ef;
-  --scheme-moss-1000: #f5f8f6;
-  --scheme-moss-1100: #f9fbf9;
+  /* Remap brand (moss) → dark slate blue in light mode only */
+  --scheme-moss-100: #0a1524;
+  --scheme-moss-200: #122338;
+  --scheme-moss-300: #183252;
+  --scheme-moss-400: #1a3858;
+  --scheme-moss-500: #1e3a5f;
+  --scheme-moss-600: #1e3a5f;
+  --scheme-moss-700: #183252;
+  --scheme-moss-800: #1e3a5f;
+  --scheme-moss-900: #eef2f7;
+  --scheme-moss-1000: #f5f8fc;
+  --scheme-moss-1100: #fafbfd;
   --scheme-moss-1200: #ffffff;
-  /* Dot grid — whisper-thin so light mode stays white, not neon */
-  --scheme-moss-600-15: #5f6f6908;
-  --scheme-moss-600-30: #5f6f690f;
-  --scheme-moss-600-50: #5f6f6916;
+  --scheme-moss-600-15: #1e3a5f14;
+  --scheme-moss-600-30: #1e3a5f22;
+  --scheme-moss-600-50: #1e3a5f33;
 
-  /* Accent (green) — match muted brand */
-  --scheme-green-100: #1a1f1e;
-  --scheme-green-200: #2a3230;
-  --scheme-green-300: #3f4a47;
-  --scheme-green-400: #4f5e59;
-  --scheme-green-500: #5a6863;
-  --scheme-green-600: #62706b;
-  --scheme-green-700: #4f5e59;
-  --scheme-green-800: #e4e9e6;
-  --scheme-green-900: #eef2ef;
-  --scheme-green-1000: #f5f8f6;
-  --scheme-green-1100: #f9fbf9;
+  /* Remap accent (green) → same blue for buttons and labels */
+  --scheme-green-100: #0a1524;
+  --scheme-green-200: #122338;
+  --scheme-green-300: #183252;
+  --scheme-green-400: #1a3858;
+  --scheme-green-500: #1e3a5f;
+  --scheme-green-600: #1e3a5f;
+  --scheme-green-700: #183252;
+  --scheme-green-800: #1e3a5f;
+  --scheme-green-900: #eef2f7;
+  --scheme-green-1000: #f5f8fc;
+  --scheme-green-1100: #fafbfd;
   --scheme-green-1200: #ffffff;
-  --scheme-green-600-15: #5f6f6908;
-  --scheme-green-600-30: #5f6f690f;
-  --scheme-green-600-50: #5f6f6916;
+  --scheme-green-600-15: #1e3a5f14;
+  --scheme-green-600-30: #1e3a5f22;
+  --scheme-green-600-50: #1e3a5f33;
 
-  /* Semantic surfaces — white cards; splash tint only on weak layer */
+  /* Once UI semantic tokens (page + dot splash) */
   --page-background: #ffffff;
-  --neutral-background-weak: #f7faf8;
+  --neutral-background-weak: #ffffff;
   --neutral-background-medium: #ffffff;
-  --neutral-background-strong: #f3f6f4;
+  --neutral-background-strong: #ffffff;
+  --brand-background-strong: #1e3a5f;
+  --brand-background-medium: #f5f8fc;
+  --brand-background-weak: #ffffff;
+  --brand-alpha-weak: #1e3a5f18;
+  --brand-alpha-medium: #1e3a5f28;
+  --brand-alpha-strong: #1e3a5f40;
+  --accent-background-strong: #1e3a5f;
+  --accent-solid-strong: #1e3a5f;
+  --accent-solid-medium: #1e3a5f;
+  --accent-on-solid-strong: #ffffff;
 
-  /* Qdrodl inline brand (terminal + chip) */
-  --qdrodl-fg-strong: #5a6863;
-  --qdrodl-fg-accent: #475569;
+  --qdrodl-fg-strong: #1e3a5f;
+  --qdrodl-fg-accent: #374151;
 }
 
 [data-theme="dark"] {
-  /* Terminal wordmark — white + navy “dl” on green-splash dark theme */
   --qdrodl-fg-strong: #ffffff;
   --qdrodl-fg-accent: #0f2847;
 }
 
 [data-theme="light"] body {
-  background: linear-gradient(
+  background-color: #ffffff !important;
+  background-image: linear-gradient(
     165deg,
     #ffffff 0%,
-    #f7faf8 22%,
+    rgba(30, 58, 95, 0.07) 22%,
     #ffffff 48%,
-    #f3f6f4 76%,
+    rgba(24, 50, 82, 0.06) 72%,
     #ffffff 100%
   ) !important;
 }

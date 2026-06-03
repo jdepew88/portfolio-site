@@ -67,7 +67,7 @@ export default function Home() {
                 height: "auto",
                 maxWidth: "100%",
                 borderRadius: "12px",
-                boxShadow: "0 12px 32px rgba(55, 65, 60, 0.1)",
+                boxShadow: "0 12px 32px rgba(30, 58, 95, 0.12)",
               }}
             />
           </RevealFx>
