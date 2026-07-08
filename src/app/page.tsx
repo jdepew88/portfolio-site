@@ -54,7 +54,7 @@ export default function Home() {
         <Column maxWidth="s" horizontal="center" align="center" gap="m">
           <RevealFx translateY={2} fillWidth horizontal="center" paddingBottom="8">
             <Image
-              src="/images/logo-jr.webp"
+              src="/images/logo-jr-256.webp"
               alt="JR Technical Consulting"
               width={160}
               height={160}
@@ -64,7 +64,7 @@ export default function Home() {
               style={{
                 display: "block",
                 width: "8rem",
-                height: "auto",
+                height: "8rem",
                 maxWidth: "100%",
                 borderRadius: "12px",
                 boxShadow: "0 12px 32px rgba(55, 65, 60, 0.1)",

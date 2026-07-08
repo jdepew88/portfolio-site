@@ -45,6 +45,14 @@ export default async function RootLayout({
       )}
     >
       <head>
+        {/* Reserve nav visibility + height before full CSS to prevent header CLS */}
+        <style
+          id="critical-ui"
+          dangerouslySetInnerHTML={{
+            __html:
+              ".flex-hide{display:none!important}@media (max-width:768px){.s-flex-hide{display:none!important}.s-flex-show{display:flex!important}}header{min-height:3.25rem;contain:layout style}",
+          }}
+        />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{

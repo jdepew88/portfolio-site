@@ -1,5 +1,11 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.navPill {
+    min-height: 2.75rem;
+    align-items: center;
+    contain: layout style;
+}
+
 .mask {
     pointer-events: none;
     backdrop-filter: blur(0.5rem);
