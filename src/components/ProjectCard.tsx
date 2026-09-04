@@ -6,6 +6,7 @@ import {
   Column,
   Flex,
   Heading,
+  Icon,
   SmartLink,
   Text,
 } from "@once-ui-system/core";
@@ -20,6 +21,8 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  stars?: number;
+  forks?: number;
   /** When true, image carousel renders at 67% width (33% smaller). */
   compactImages?: boolean;
 }
@@ -33,11 +36,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  stars,
+  forks,
   compactImages = false,
 }) => {
   const previewLink = link || href;
   const isGitHubLink = Boolean(link?.includes("github.com"));
   const imageWidth = compactImages ? "67%" : "100%";
+  const hasStats = typeof stars === "number" || typeof forks === "number";
 
   return (
     <Column fillWidth gap="m">
@@ -70,10 +76,30 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         gap="l"
       >
         {title && (
-          <Flex flex={5}>
+          <Flex flex={5} direction="column" gap="8">
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
               {title}
             </Heading>
+            {hasStats && (
+              <Flex gap="16" vertical="center">
+                {typeof stars === "number" && (
+                  <Flex gap="4" vertical="center">
+                    <Icon name="star" size="s" onBackground="neutral-weak" />
+                    <Text variant="label-default-s" onBackground="neutral-weak">
+                      {stars}
+                    </Text>
+                  </Flex>
+                )}
+                {typeof forks === "number" && (
+                  <Flex gap="4" vertical="center">
+                    <Icon name="fork" size="s" onBackground="neutral-weak" />
+                    <Text variant="label-default-s" onBackground="neutral-weak">
+                      {forks}
+                    </Text>
+                  </Flex>
+                )}
+              </Flex>
+            )}
           </Flex>
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (

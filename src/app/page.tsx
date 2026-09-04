@@ -154,7 +154,7 @@ export default function Home() {
               {"\n\n"}$ focus
               {"\n"}web apps · Chrome extensions · homelab · legal-tech · automation
               {"\n\n"}$ currently_building
-              {"\n"}
+              {"\n"}CCNA Practice Labs ·{" "}
               <QdrodlBrand />
               {" · Homelab in a Box · TubeStack · TabStack"}
             </Text>
@@ -168,6 +168,20 @@ export default function Home() {
             <Line maxWidth={48} />
           </Row>
           <Row fillWidth gap="12" wrap paddingX="l" horizontal="center">
+            <SmartLink href="https://ccnapracticelabs.com/">
+              <Row
+                border="neutral-alpha-weak"
+                background="page"
+                radius="m"
+                paddingX="16"
+                paddingY="12"
+                gap="8"
+                vertical="center"
+              >
+                <Icon name="globe" onBackground="brand-weak" />
+                <Text variant="body-default-s">CCNA Practice Labs</Text>
+              </Row>
+            </SmartLink>
             <SmartLink href="/bio">
               <Row
                 border="neutral-alpha-weak"

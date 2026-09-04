@@ -89,7 +89,7 @@ export default function EducationPage() {
               detail="Cisco Certified Network Associate — routing, switching, and practical networking fundamentals."
               tags={["Networking", "Routing", "Switching"]}
               link={{
-                href: "https://github.com/jdepew88/CCNA-Notes---jdepew88",
+                href: "https://github.com/jdepew88/CCNA-Notes-Bombal-Course",
                 label: "CCNA Notes (GitHub)",
               }}
             />

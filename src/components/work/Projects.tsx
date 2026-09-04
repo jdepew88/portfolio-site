@@ -20,6 +20,8 @@ type ProjectEntry = {
   content: string;
   caseStudyHref?: string;
   avatars: { src: string }[];
+  stars?: number;
+  forks?: number;
 };
 
 export function Projects({ range, exclude, compactImages = false }: ProjectsProps) {
@@ -47,6 +49,8 @@ export function Projects({ range, exclude, compactImages = false }: ProjectsProp
       content: "",
       caseStudyHref: undefined,
       avatars: [],
+      stars: project.stars,
+      forks: project.forks,
     })),
   ];
 
@@ -75,6 +79,8 @@ export function Projects({ range, exclude, compactImages = false }: ProjectsProp
           content={project.content}
           avatars={project.avatars}
           link={project.link}
+          stars={project.stars}
+          forks={project.forks}
           compactImages={compactImages}
         />
       ))}

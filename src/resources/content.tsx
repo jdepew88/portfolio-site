@@ -174,7 +174,7 @@ const about: About = {
             <strong>CCNA</strong> — Cisco Certified Network Associate (earned June 2023, renewing
             June 2026). Routing, switching, and practical networking fundamentals.{" "}
             <a
-              href="https://github.com/jdepew88/CCNA-Notes---jdepew88"
+              href="https://github.com/jdepew88/CCNA-Notes-Bombal-Course"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -221,7 +221,15 @@ const about: About = {
       },
       {
         title: "Networking and lab work",
-        description: <>VLANs, routing, firewalling, and hands-on CCNA-style documentation.</>,
+        description: (
+          <>
+            VLANs, routing, firewalling, and hands-on CCNA practice — including{" "}
+            <a href="https://ccnapracticelabs.com/" target="_blank" rel="noopener noreferrer">
+              CCNA Practice Labs
+            </a>
+            .
+          </>
+        ),
         tags: [{ name: "Networking", icon: "globe" }],
         images: [],
       },

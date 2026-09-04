@@ -48,6 +48,8 @@ import {
   FaTelegram,
   FaTerminal,
   FaServer,
+  FaStar,
+  FaCodeFork,
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -83,6 +85,8 @@ export const iconLibrary: Record<string, IconType> = {
   cloudflare: SiCloudflare,
   terminal: FaTerminal,
   server: FaServer,
+  star: FaStar,
+  fork: FaCodeFork,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,

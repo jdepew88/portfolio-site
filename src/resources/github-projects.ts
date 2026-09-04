@@ -7,9 +7,21 @@ export type ExternalProject = {
   images: string[];
   link: string;
   publishedAt: string;
+  /** Optional GitHub stats shown on the project card */
+  stars?: number;
+  forks?: number;
 };
 
 export const externalProjects: ExternalProject[] = [
+  {
+    slug: "ccna-practice-labs",
+    title: "CCNA Practice Labs",
+    publishedAt: "2026-06-03",
+    summary:
+      "Hands-on CCNA practice labs for routing, switching, and real exam-style networking scenarios — the main product I’ve been building.",
+    images: ["/images/projects/joseph/ccna-practice-labs.webp"],
+    link: "https://ccnapracticelabs.com/",
+  },
   {
     slug: "jr-technical-consulting",
     title: "JR Technical Consulting",
@@ -42,9 +54,11 @@ export const externalProjects: ExternalProject[] = [
     title: "CCNA Notes",
     publishedAt: "2026-05-20",
     summary:
-      "Networking study notes focused on routing, switching, subnetting, and practical CCNA review.",
+      "Networking study notes from David Bombal’s CCNA Start course — routing, switching, subnetting, and practical review.",
     images: ["/images/projects/joseph/ccna-notes-cover.webp"],
-    link: "https://github.com/jdepew88/CCNA-Notes---jdepew88",
+    link: "https://github.com/jdepew88/CCNA-Notes-Bombal-Course",
+    stars: 89,
+    forks: 26,
   },
   {
     slug: "homelab-in-a-box",
