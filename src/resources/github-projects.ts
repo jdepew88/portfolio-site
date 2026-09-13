@@ -14,15 +14,6 @@ export type ExternalProject = {
 
 export const externalProjects: ExternalProject[] = [
   {
-    slug: "ccna-practice-labs",
-    title: "CCNA Practice Labs",
-    publishedAt: "2026-06-03",
-    summary:
-      "Hands-on CCNA practice labs for routing, switching, and real exam-style networking scenarios — the main product I’ve been building.",
-    images: ["/images/projects/joseph/ccna-practice-labs.webp"],
-    link: "https://ccnapracticelabs.com/",
-  },
-  {
     slug: "jr-technical-consulting",
     title: "JR Technical Consulting",
     publishedAt: "2026-05-25",
