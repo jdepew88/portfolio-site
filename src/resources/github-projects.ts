@@ -10,9 +10,24 @@ export type ExternalProject = {
   /** Optional GitHub stats shown on the project card */
   stars?: number;
   forks?: number;
+  /** Optional tag chips shown under the card description */
+  tags?: string[];
+  /** Optional label for the outbound link (defaults to "View project") */
+  linkLabel?: string;
 };
 
 export const externalProjects: ExternalProject[] = [
+  {
+    slug: "website-portfolio",
+    title: "Website Portfolio / Web Development Work",
+    publishedAt: "2026-10-10",
+    summary:
+      "A focused portfolio page showing my web development work, including purpose-built websites, UI design, visual design, Cloudflare deployments, and practical client-facing web projects.",
+    images: ["/images/projects/joseph/website-portfolio.webp"],
+    link: "https://joeydepew-website-portfolio.joeydepew.workers.dev/",
+    linkLabel: "View Web Portfolio",
+    tags: ["Web Development", "UI Design", "Visual Design", "Cloudflare", "JavaScript"],
+  },
   {
     slug: "jr-technical-consulting",
     title: "JR Technical Consulting",

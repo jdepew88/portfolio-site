@@ -22,6 +22,8 @@ type ProjectEntry = {
   avatars: { src: string }[];
   stars?: number;
   forks?: number;
+  tags?: string[];
+  linkLabel?: string;
 };
 
 export function Projects({ range, exclude, compactImages = false }: ProjectsProps) {
@@ -51,6 +53,8 @@ export function Projects({ range, exclude, compactImages = false }: ProjectsProp
       avatars: [],
       stars: project.stars,
       forks: project.forks,
+      tags: project.tags,
+      linkLabel: project.linkLabel,
     })),
   ];
 
@@ -81,6 +85,8 @@ export function Projects({ range, exclude, compactImages = false }: ProjectsProp
           link={project.link}
           stars={project.stars}
           forks={project.forks}
+          tags={project.tags}
+          linkLabel={project.linkLabel}
           compactImages={compactImages}
         />
       ))}

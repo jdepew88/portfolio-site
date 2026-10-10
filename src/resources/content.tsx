@@ -199,6 +199,31 @@ const about: About = {
         images: [],
       },
       {
+        title: "Web development",
+        description: (
+          <>
+            I also build practical web projects — small business sites, portfolio pages, WordPress
+            sites where that’s the right fit, and purpose-built JavaScript applications. The focus is
+            clean UI and visual design, readable structure, a Git/GitHub workflow, fast Cloudflare
+            deployments, and sites that are easy to understand, maintain, and improve.{" "}
+            <a
+              href="https://joeydepew-website-portfolio.joeydepew.workers.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Web portfolio
+            </a>
+            .
+          </>
+        ),
+        tags: [
+          { name: "JavaScript", icon: "javascript" },
+          { name: "Cloudflare", icon: "cloudflare" },
+          { name: "GitHub", icon: "github" },
+        ],
+        images: [],
+      },
+      {
         title: "Infrastructure and self-hosting",
         description: (
           <>

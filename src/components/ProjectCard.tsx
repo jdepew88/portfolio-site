@@ -8,6 +8,7 @@ import {
   Heading,
   Icon,
   SmartLink,
+  Tag,
   Text,
 } from "@once-ui-system/core";
 
@@ -23,6 +24,10 @@ interface ProjectCardProps {
   link: string;
   stars?: number;
   forks?: number;
+  /** Optional tag chips rendered under the description */
+  tags?: string[];
+  /** Overrides the outbound link label (defaults to "View project" / "View on GitHub") */
+  linkLabel?: string;
   /** When true, image carousel renders at 67% width (33% smaller). */
   compactImages?: boolean;
 }
@@ -38,6 +43,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
   stars,
   forks,
+  tags = [],
+  linkLabel,
   compactImages = false,
 }) => {
   const previewLink = link || href;
@@ -102,13 +109,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
           </Flex>
         )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
+        {(avatars?.length > 0 || description?.trim() || content?.trim() || tags.length > 0) && (
           <Column flex={7} gap="16">
             {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
               </Text>
+            )}
+            {tags.length > 0 && (
+              <Flex gap="8" wrap>
+                {tags.map((tag) => (
+                  <Tag key={tag} size="m">
+                    {tag}
+                  </Tag>
+                ))}
+              </Flex>
             )}
             <Flex gap="24" wrap>
               {caseStudyHref && content?.trim() && (
@@ -127,7 +143,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   href={link}
                 >
                   <Text variant="body-default-s">
-                    {isGitHubLink ? "View on GitHub" : "View project"}
+                    {linkLabel ?? (isGitHubLink ? "View on GitHub" : "View project")}
                   </Text>
                 </SmartLink>
               )}
