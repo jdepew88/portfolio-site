@@ -15,7 +15,7 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
-const ABOUT_HERO = "/images/about/about-hero.webp";
+const ABOUT_HERO = "/images/about/bio-hero-bg-green-hills-city.png";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -80,16 +80,29 @@ export default function About() {
 
       <Column fillWidth paddingX="l" marginBottom="l">
         <div className={styles.hero}>
-          <Media
-            fillWidth
-            radius="l"
-            alt="Joseph Depew — About hero"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={styles.heroImage}
             src={ABOUT_HERO}
-            aspectRatio="original"
-            objectFit="contain"
-            sizes="(max-width: 768px) 100vw, 1440px"
-            priority
+            alt=""
+            width={1672}
+            height={941}
+            fetchPriority="high"
+            decoding="async"
           />
+          <div className={styles.heroShade} aria-hidden="true" />
+          <div className={styles.heroContent}>
+            <Heading as="h1" variant="display-strong-l" wrap="balance" className={styles.heroName}>
+              {person.name}
+            </Heading>
+            <Text variant="label-default-m" className={styles.heroRole}>
+              {person.role}
+            </Text>
+            <div className={styles.heroDivider} aria-hidden="true" />
+            <Text variant="body-default-m" wrap="balance" className={styles.heroText}>
+              {about.intro.description}
+            </Text>
+          </div>
         </div>
 
         {social.length > 0 && (

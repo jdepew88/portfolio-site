@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Joseph",
   lastName: "Depew",
   name: `Joseph Depew`,
-  role: "Builder · IT generalist · Legal-tech · Homelab",
+  role: "Web Development · Technical Education · Systems & Infrastructure",
   avatar: "/images/joseph-depew.webp",
   email: "hello@joeydepew.com",
   location: "America/Los_Angeles", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -76,7 +76,7 @@ const about: About = {
   label: "About",
   title: `About – ${person.name}`,
   description:
-    "I like building systems that are understandable, recoverable, and useful — across software, infrastructure, and legal-tech workflows.",
+    "I build practical software, interactive learning tools, and infrastructure solutions — combining web development, networking, and systems administration.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -89,13 +89,14 @@ const about: About = {
     link: "",
   },
   intro: {
+    // Rendered inside the About hero (not as a standalone section)
     display: false,
     title: "Introduction",
     description: (
       <>
-        I like building systems that are understandable, recoverable, and useful. My work sits
-        between software, infrastructure, legal automation, and practical IT support — the kind of
-        work you can document, repeat, and fix without heroics.
+        I build practical software, interactive learning tools, and infrastructure solutions. My
+        work combines web development, networking, and systems administration — from creating CCNA
+        Practice Labs to deploying applications and managing self-hosted environments.
       </>
     ),
   },
@@ -104,56 +105,64 @@ const about: About = {
     title: "What I build",
     experiences: [
       {
-        company: "Legal-tech / document workflows",
+        company: "Web Development",
         timeframe: "Current focus",
-        role: "QDRO automation, structured intake, standardized outputs",
+        role: "Purpose-built websites, interactive applications, practical web tools",
         achievements: [
           <>
-            Building <strong>QDROdl</strong> (
-            <a href="https://qdrodl.app/">qdrodl.app</a>
-            ): a legal-tech web app for generating QDRO/DRO document packages with structured
-            intake and repeatable workflows.
+            I design and build purpose-built websites, interactive applications, and practical web
+            tools. The work covers frontend development, responsive UI design, visual design,
+            Git-based workflows, and deploying modern sites and applications through Cloudflare.
           </>,
           <>
-            Grounded in real-world QDRO workflow experience — reducing rework, standardizing
-            templates, and making document prep more consistent.
+            Selected work is on the <a href="/work">web development portfolio</a>, including{" "}
+            <strong>QDROdl</strong> (<a href="https://qdrodl.app/">qdrodl.app</a>), a legal-tech
+            web app for generating QDRO/DRO document packages with structured intake and
+            repeatable workflows.
           </>,
         ],
         images: [],
       },
       {
-        company: "IT generalist / practical support",
+        company: "Technical Education",
         timeframe: "Ongoing",
-        role: "Hands-on troubleshooting, networks, small business workflows",
+        role: "Interactive learning tools for complex technical subjects",
         achievements: [
           <>
-            <strong>JR Technical Consulting</strong> —{" "}
-            <a href="https://jrtechnicalconsulting.com/">jrtechnicalconsulting.com</a> for practical
-            IT support, networking, endpoints, backups, and small-business systems.
+            I build interactive technical learning experiences designed to make complex subjects
+            easier to understand and practice.
           </>,
           <>
-            Building and maintaining small, understandable systems: websites, backups, endpoints,
-            Wi‑Fi/networking, and “make it work reliably” business automation.
-          </>,
-          <>
-            Focused on repeatability and recovery: clean documentation, sane defaults, and simple
-            runbooks.
+            The primary example is{" "}
+            <strong>
+              <a href="https://ccnapracticelabs.com/" target="_blank" rel="noopener noreferrer">
+                CCNA Practice Labs
+              </a>
+            </strong>
+            : a full learning platform that combines networking labs, guided lessons, quizzes,
+            practice exams, and study tools — a substantial software project I designed, built,
+            deployed, and operate, not a collection of notes.
           </>,
         ],
         images: [],
       },
       {
-        company: "Homelab / self-hosting",
+        company: "Systems & Infrastructure",
         timeframe: "Ongoing",
-        role: "Proxmox, Unraid, Docker, VLANs, reverse proxy, secure remote access",
+        role: "Networking, systems administration, virtualization, self-hosting",
         achievements: [
           <>
-            Building <strong>Homelab in a Box</strong>: a self-hosting starter project for deploying
-            useful Docker services with practical instructions and secure access patterns.
+            Background in networking, systems administration, Linux, Windows, virtualization,
+            Docker, self-hosting, routing and switching, network segmentation, remote access, and
+            troubleshooting — including hands-on small-business support through{" "}
+            <strong>JR Technical Consulting</strong> (
+            <a href="https://jrtechnicalconsulting.com/">jrtechnicalconsulting.com</a>).
           </>,
           <>
-            I’m most interested in setups that can be repeated: bootstrap, deploy, backup, and
-            restore — then write it down so it’s not tribal knowledge.
+            My <a href="/homelab">homelab</a> is a practical environment for testing deployments,
+            documenting configurations, managing services, and learning through hands-on
+            experimentation. <strong>Homelab in a Box</strong> grew out of it: a self-hosting
+            starter for deploying useful Docker services with secure access patterns.
           </>,
         ],
         images: [],
@@ -164,6 +173,19 @@ const about: About = {
     display: true, // set to false to hide this section
     title: "Background",
     institutions: [
+      {
+        name: "From IT to building software",
+        description: (
+          <>
+            My background started with hands-on IT, networking, troubleshooting, and systems
+            administration. Over time, that work expanded into building websites, web
+            applications, and technical learning tools — including legal document workflows that
+            became QDROdl. Today, I combine those disciplines to create practical software and
+            infrastructure solutions, bringing the same attention to reliability, documentation,
+            and maintainability to everything I build.
+          </>
+        ),
+      },
       {
         name: "California State University, Los Angeles",
         description: (
@@ -193,69 +215,48 @@ const about: About = {
     title: "Tools and domains",
     skills: [
       {
-        title: "Web apps",
-        description: <>Next.js/TypeScript apps with practical data models, workflows, and payments where needed.</>,
-        tags: [{ name: "Next.js", icon: "nextjs" }, { name: "TypeScript", icon: "typescript" }],
-        images: [],
-      },
-      {
-        title: "Web development",
+        title: "Web Development",
         description: (
           <>
-            I also build practical web projects — small business sites, portfolio pages, WordPress
-            sites where that’s the right fit, and purpose-built JavaScript applications. The focus is
-            clean UI and visual design, readable structure, a Git/GitHub workflow, fast Cloudflare
-            deployments, and sites that are easy to understand, maintain, and improve.{" "}
-            <a
-              href="https://joeydepew-website-portfolio.joeydepew.workers.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Web portfolio
-            </a>
-            .
+            JavaScript / TypeScript, HTML / CSS, frontend development, UI and visual design,
+            responsive design, WordPress, Git / GitHub, Cloudflare Workers / Pages, and web
+            application development.
           </>
         ),
         tags: [
+          { name: "TypeScript", icon: "typescript" },
           { name: "JavaScript", icon: "javascript" },
+          { name: "Next.js", icon: "nextjs" },
           { name: "Cloudflare", icon: "cloudflare" },
           { name: "GitHub", icon: "github" },
         ],
         images: [],
       },
       {
-        title: "Infrastructure and self-hosting",
+        title: "Technical Education & Projects",
         description: (
           <>
-            Docker Compose, reverse proxy, Cloudflare, Linux, backups, and secure access for small
-            systems that you can actually maintain.
+            Interactive learning tools, CCNA networking labs, technical documentation, quizzes and
+            assessments, and learning-focused application design.
+          </>
+        ),
+        tags: [{ name: "CCNA Practice Labs", icon: "book" }],
+        images: [],
+      },
+      {
+        title: "Systems & Infrastructure",
+        description: (
+          <>
+            Linux / Windows, Docker / Docker Compose, Proxmox / Unraid, pfSense, routing /
+            switching / VLANs, network troubleshooting, virtualization and self-hosting, backups and
+            recovery, and Cloudflare Tunnels.
           </>
         ),
         tags: [
           { name: "Docker", icon: "docker" },
           { name: "Linux", icon: "terminal" },
-          { name: "Cloudflare", icon: "cloudflare" },
+          { name: "Networking", icon: "globe" },
         ],
-        images: [],
-      },
-      {
-        title: "Chrome extensions",
-        description: <>Local-first browser tools for tab/session organization and better workflows.</>,
-        tags: [{ name: "Manifest V3", icon: "chrome" }, { name: "JavaScript", icon: "javascript" }],
-        images: [],
-      },
-      {
-        title: "Networking and lab work",
-        description: (
-          <>
-            VLANs, routing, firewalling, and hands-on CCNA practice — including{" "}
-            <a href="https://ccnapracticelabs.com/" target="_blank" rel="noopener noreferrer">
-              CCNA Practice Labs
-            </a>
-            .
-          </>
-        ),
-        tags: [{ name: "Networking", icon: "globe" }],
         images: [],
       },
     ],

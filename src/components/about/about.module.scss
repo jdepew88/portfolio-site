@@ -1,22 +1,109 @@
 @use "../breakpoints.scss" as breakpoints;
 
 .hero {
+    position: relative;
     width: 100%;
+    aspect-ratio: 21 / 9;
+    min-height: 20rem;
     border-radius: var(--radius-l);
     overflow: hidden;
-    line-height: 0;
     isolation: isolate;
+    /* Shade tuned to the dark green hero artwork so copy stays readable in both themes */
+    --about-hero-shade: #07130f;
+    --about-hero-fg: #f2f5f0;
+    --about-hero-muted: #b9d2c0;
 
-    img,
-    picture,
-    video {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        object-position: center;
-        border-radius: var(--radius-l);
+    @media (max-width: breakpoints.$m) {
+        aspect-ratio: 16 / 9;
     }
+
+    @media (max-width: breakpoints.$s) {
+        aspect-ratio: auto;
+        min-height: 0;
+    }
+}
+
+.heroImage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Keep the horizon, waterfront, and city (right third) in frame when cropping */
+    object-position: 62% 58%;
+    border-radius: var(--radius-l);
+
+    @media (max-width: breakpoints.$s) {
+        object-position: 68% 55%;
+    }
+}
+
+.heroShade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--about-hero-shade) 88%, transparent) 0%,
+        color-mix(in srgb, var(--about-hero-shade) 68%, transparent) 38%,
+        color-mix(in srgb, var(--about-hero-shade) 18%, transparent) 62%,
+        transparent 82%
+    );
+
+    @media (max-width: breakpoints.$s) {
+        background: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--about-hero-shade) 86%, transparent) 0%,
+            color-mix(in srgb, var(--about-hero-shade) 70%, transparent) 55%,
+            color-mix(in srgb, var(--about-hero-shade) 30%, transparent) 100%
+        );
+    }
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--static-space-12);
+    height: 100%;
+    max-width: 36.5rem;
+    padding: var(--static-space-40) var(--static-space-48);
+    color: var(--about-hero-fg);
+
+    @media (max-width: breakpoints.$m) {
+        padding: var(--static-space-32);
+    }
+
+    @media (max-width: breakpoints.$s) {
+        max-width: none;
+        padding: var(--static-space-32) var(--static-space-24);
+        /* Leave room below the copy so the landscape still shows on small screens */
+        padding-bottom: clamp(6rem, 34vw, 10rem);
+    }
+}
+
+.heroName {
+    color: var(--about-hero-fg);
+}
+
+.heroRole {
+    color: var(--about-hero-muted);
+    letter-spacing: 0.02em;
+}
+
+.heroDivider {
+    width: 100%;
+    max-width: 22rem;
+    height: 1px;
+    background: color-mix(in srgb, var(--about-hero-muted) 35%, transparent);
+}
+
+.heroText {
+    color: color-mix(in srgb, var(--about-hero-fg) 92%, transparent);
 }
 
 .socialRow {
