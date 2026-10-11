@@ -24,6 +24,7 @@ type ProjectEntry = {
   forks?: number;
   tags?: string[];
   linkLabel?: string;
+  imageAlt?: string;
 };
 
 export function Projects({ range, exclude, compactImages = false }: ProjectsProps) {
@@ -55,6 +56,7 @@ export function Projects({ range, exclude, compactImages = false }: ProjectsProp
       forks: project.forks,
       tags: project.tags,
       linkLabel: project.linkLabel,
+      imageAlt: project.imageAlt,
     })),
   ];
 
@@ -87,6 +89,7 @@ export function Projects({ range, exclude, compactImages = false }: ProjectsProp
           forks={project.forks}
           tags={project.tags}
           linkLabel={project.linkLabel}
+          imageAlt={project.imageAlt}
           compactImages={compactImages}
         />
       ))}

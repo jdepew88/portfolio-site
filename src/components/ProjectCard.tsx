@@ -28,6 +28,8 @@ interface ProjectCardProps {
   tags?: string[];
   /** Overrides the outbound link label (defaults to "View project" / "View on GitHub") */
   linkLabel?: string;
+  /** Alt text for the card image(s); defaults to the title */
+  imageAlt?: string;
   /** When true, image carousel renders at 67% width (33% smaller). */
   compactImages?: boolean;
 }
@@ -45,6 +47,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   forks,
   tags = [],
   linkLabel,
+  imageAlt,
   compactImages = false,
 }) => {
   const previewLink = link || href;
@@ -69,7 +72,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             sizes="(max-width: 960px) 100vw, 960px"
             items={images.map((image) => ({
               slide: image,
-              alt: title,
+              alt: imageAlt ?? title,
             }))}
           />
         </SmartLink>
